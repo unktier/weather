@@ -33,7 +33,7 @@ const DisplayWeather = () => {
 
         const renderWeatherData = weatherData.data.dataseries.map(data => {
             return (
-                <React.Fragment key={data.timepoint}>
+                <div key={data.timepoint} className="weather-day">
                     <div className="timepoint">
                         {data.timepoint}
                     </div>
@@ -49,7 +49,7 @@ const DisplayWeather = () => {
                     <div className="weather-type">
                         {data.weather}
                     </div>
-                </React.Fragment>
+                </div>
             );
         });
 
