@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './DisplayWeather.css';
 
 const DisplayWeather = () => {
     const [latitude, setLatitude] = useState(null);
@@ -61,7 +62,7 @@ const DisplayWeather = () => {
             <div className="initial-date">
                 {weatherData.data.init}
             </div>
-            <div className="container">
+            <div className="weather-container">
                 {renderWeatherData}
             </div>
         </div>
