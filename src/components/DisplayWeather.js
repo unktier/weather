@@ -4,6 +4,7 @@ import axios from 'axios';
 const DisplayWeather = () => {
     const [latitude, setLatitude] = useState(null);
     const [longitude, setLongitude] = useState(null);
+    const [weatherData, setWeatherData] = useState([]);
 
     useEffect(() => {
         window.navigator.geolocation.getCurrentPosition(
@@ -19,22 +20,50 @@ const DisplayWeather = () => {
         const getLocation = async () => {
             const response = await axios.get('http://www.7timer.info/bin/api.pl', {
                 params: {
-                    lon: longitude,
-                    lat: latitude,
+                    lon: 113.17,
+                    lat: 23.09,
                     product: 'civil',
                     output: 'json'
                 }
             });
-            console.log(response);
+            setWeatherData(response);
         };
         getLocation();
-
     }, [latitude, longitude]);
 
+        const renderWeatherData = weatherData.data.dataseries.map(data => {
+            return (
+                <React.Fragment key={data.timepoint}>
+                    <div className="timepoint">
+                        {data.timepoint}
+                    </div>
+                    <div className="cloud-cover">
+                        {data.cloudcover}
+                    </div>
+                    <div className="temp">
+                        {data.temp2m}
+                    </div>
+                    <div className="relative-humidity">
+                        {data.rh2m}
+                    </div>
+                    <div className="weather-type">
+                        {data.weather}
+                    </div>
+                </React.Fragment>
+            );
+        });
+
+
+    console.log(weatherData.data.dataseries);
 
     return (
         <div className="display-weather">
-            DisplayWeather
+            <div className="initial-date">
+                {weatherData.data.init}
+            </div>
+            <div className="container">
+                {renderWeatherData}
+            </div>
         </div>
     );
 };
