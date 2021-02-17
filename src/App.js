@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import DisplayWeather from './components/DisplayWeather';
 
 const App = () => {
     const [latitude, setLatitude] = useState(null);
