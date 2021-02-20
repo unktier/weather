@@ -1,32 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import './Weather.css';
 
 const Weather = (props) => {
+
     const renderWeatherData = () => {
         if (props.weatherData) {
-            return props.weatherData.data.dataseries.map(data => {
-                return (
-                    <div key={data.timepoint} className="weather-day">
-                        <div className="timepoint">
-                            {data.timepoint}
+            return props.weatherData.data.dataseries.map((data, i) => {
+                    return (
+                        <div key={data.timepoint} className="weather-day">
+                            <div className="timepoint">
+                                {data.timepoint}
+                            </div>
+                            <div className="cloud-cover">
+                                {data.cloudcover}
+                            </div>
+                            <div className="temp">
+                                {data.temp2m}
+                            </div>
+                            <div className="relative-humidity">
+                                {data.rh2m}
+                            </div>
+                            <div className="weather-type">
+                                {data.weather}
+                            </div>
                         </div>
-                        <div className="cloud-cover">
-                            {data.cloudcover}
-                        </div>
-                        <div className="temp">
-                            {data.temp2m}
-                        </div>
-                        <div className="relative-humidity">
-                            {data.rh2m}
-                        </div>
-                        <div className="weather-type">
-                            {data.weather}
-                        </div>
-                    </div>
-                );
+                    );             
             });
-        } ;
+        };
         return <div>Loading</div>
 
     };
