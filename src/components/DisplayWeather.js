@@ -39,7 +39,7 @@ const DisplayWeather = () => {
                     sliceTo += 8;
                 };
             };
-            setWeatherData(response.data.dataseries);
+            setWeatherData(response);
         };
 
         getLocation();
@@ -49,7 +49,7 @@ const DisplayWeather = () => {
     return (
         <div className="display-weather">
             <div className="initial-date">
-                {/* {weatherData ? weatherData.data.init : 'Loading'} */}
+                {weatherData ? weatherData.data.init : 'Loading'}
             </div>
             <Weather 
                 weatherData={weatherData} 
