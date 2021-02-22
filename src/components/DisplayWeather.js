@@ -20,7 +20,7 @@ const DisplayWeather = () => {
         // );
 
         const getLocation = async () => {
-            const response = await axios.get('http://www.7timer.info/bin/api.pl', {
+            const { data } = await axios.get('http://www.7timer.info/bin/api.pl', {
                 params: {
                     lon: 113.17,
                     lat: 23.09,
@@ -29,7 +29,7 @@ const DisplayWeather = () => {
                 }
             });
 
-            const newArray = [...response.data.dataseries];
+            const newArray = [...data.dataseries];
             let updateArray = [];
             let sliceTo = 8;
     
@@ -39,7 +39,7 @@ const DisplayWeather = () => {
                     sliceTo += 8;
                 };
             };
-            setWeatherData(response);
+            setWeatherData(data);
         };
 
         getLocation();
@@ -49,7 +49,7 @@ const DisplayWeather = () => {
     return (
         <div className="display-weather">
             <div className="initial-date">
-                {weatherData ? weatherData.data.init : 'Loading'}
+                {weatherData ? weatherData.init : 'Loading'}
             </div>
             <Weather 
                 weatherData={weatherData} 
