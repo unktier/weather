@@ -6,7 +6,7 @@ const DisplayWeather = () => {
     // const [latitude, setLatitude] = useState(null);
     // const [longitude, setLongitude] = useState(null);
     const [weatherData, setWeatherData] = useState(null);
-    const [changedWeatherData, setChangedWeatherData] = useState([]);
+    const [initDate, setInitDate] = useState(null);
 
     useEffect(() => {
         // window.navigator.geolocation.getCurrentPosition(
@@ -39,7 +39,8 @@ const DisplayWeather = () => {
                     sliceTo += 8;
                 };
             };
-            setWeatherData(data);
+            setInitDate(data.init)
+            setWeatherData(updateArray);
         };
 
         getLocation();
@@ -49,7 +50,7 @@ const DisplayWeather = () => {
     return (
         <div className="display-weather">
             <div className="initial-date">
-                {weatherData ? weatherData.init : 'Loading'}
+                { initDate ? initDate : 'Loading'}
             </div>
             <Weather 
                 weatherData={weatherData} 
