@@ -56,6 +56,11 @@ const DisplayWeather = () => {
         };
     };
 
+    const onChangeDayPrev = () => {
+        if (changeDay > 0) {
+            setChangeDay(changeDay - 1);
+        };
+    };
 
     return (
         <div className="display-weather">
@@ -69,7 +74,7 @@ const DisplayWeather = () => {
             {
                 changeDay > 0 ? 
                     <button
-                        
+                        onClick={onChangeDayPrev}
                         className="change-prev"
                     >
                         Change Day Prev
