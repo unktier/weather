@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import WeatherIcon from './WeatherIcon/WeatherIcon';
 
 import './Weather.css';
 
