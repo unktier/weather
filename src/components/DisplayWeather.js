@@ -20,17 +20,19 @@ const DisplayWeather = () => {
         //     }
         // );
 
+        // lon: 113.17,
+        // lat: 23.09,
+
         const getLocation = async () => {
             const { data } = await axios.get('http://www.7timer.info/bin/api.pl', {
                 params: {
-                    lon: 113.17,
-                    lat: 23.09,
+                    lon: 40.741,
+                    lat: 73.98,
                     product: 'civil',
                     output: 'json'
                 }
             });
             console.log(data)
-
             // splitting data into 8x8 until I find a better solution
 
             const newArray = [...data.dataseries];
@@ -50,6 +52,8 @@ const DisplayWeather = () => {
         getLocation();
 
     }, []);
+
+    // console.log(weatherData)
 
     const onChangeDayNext = () => {
         if (changeDay < 7) {
