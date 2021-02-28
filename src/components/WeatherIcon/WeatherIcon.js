@@ -8,15 +8,20 @@ import CloudyDay from './cloudy-day-3.svg'
 import VeryCloudyDay from './cloudy.svg';
 import VeryCloudyNight from './cloudy.svg';
 import LightRain from './rainy-4.svg';
+import Rain from './rainy-6.svg'
 import IsolatedShower from './rainy-1.svg';
 import OccasionalShower from './rainy-3.svg';
-import LightSnow from './snowy-4.svg';
+import LightSnow from './snowy-5.svg';
 import Snow from './snowy-6.svg';
+import Humid from './cloudy-day-1.svg';
+import ThunderStorm from './thunder.svg';
 
 /* 
     reference
     "lightrainday"
     "lightrainnight"
+    "rainnight"
+    "rainday"
     "pcloudynight" - partly cloudy night
     "pcloudyday" - partly cloudy day
     "mcloudynight" - cloudy night
@@ -28,9 +33,16 @@ import Snow from './snowy-6.svg';
     "ishowerday" - isolated shower
     "oshowerday" - occasional shower day
     "oshowernight" - occasional shower night
+    "lightsnowday" - light snow day
     "lightsnownight" - light snow night
-    "humiday" - foggy?
-
+    "humidday" - foggy?
+    "humidnight"
+    "snowday"
+    "snownight"
+    "tsday" - thunderstorm day
+    "tsnight" - thunderstorm night
+    "tsrainday" (might not exist)
+    "tsrainnight" - thunderstorm rain night
 
 */
 
