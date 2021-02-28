@@ -1,20 +1,20 @@
 import React from 'react';
-import ClearDay from './Icons/day.svg';
-import ClearNight from './Icons/night.svg';
-import PartlyCloudyDay from './Icons/cloudy-day-2.svg';
-import PartlyCloudyNight from './Icons/cloudy-night-2.svg';
-import CloudyNight from './Icons/cloudy-night-3.svg';
-import CloudyDay from './Icons/cloudy-day-3.svg'
-import VeryCloudyDay from './Icons/cloudy.svg';
-import VeryCloudyNight from './Icons/cloudy.svg';
-import LightRain from './Icons/rainy-4.svg';
-import Rain from './Icons/rainy-6.svg'
-import IsolatedShower from './Icons/rainy-1.svg';
-import OccasionalShower from './Icons/rainy-3.svg';
-import LightSnow from './Icons/snowy-5.svg';
-import Snow from './Icons/snowy-6.svg';
-import Humid from './Icons/cloudy-day-1.svg';
-import ThunderStorm from './Icons/thunder.svg';
+import ClearDay from './day.svg';
+import ClearNight from './night.svg';
+import PartlyCloudyDay from './cloudy-day-2.svg';
+import PartlyCloudyNight from './cloudy-night-2.svg';
+import CloudyNight from './cloudy-night-3.svg';
+import CloudyDay from './cloudy-day-3.svg'
+import VeryCloudyDay from './cloudy.svg';
+import VeryCloudyNight from './cloudy.svg';
+import LightRain from './rainy-4.svg';
+import Rain from './rainy-6.svg'
+import IsolatedShower from './rainy-1.svg';
+import OccasionalShower from './rainy-3.svg';
+import LightSnow from './snowy-5.svg';
+import Snow from './snowy-6.svg';
+import Humid from './cloudy-day-1.svg';
+import ThunderStorm from './thunder.svg';
 
 /* 
     reference
