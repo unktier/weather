@@ -3,8 +3,8 @@ import ClearDay from './Icons/day.svg';
 import ClearNight from './Icons/night.svg';
 import PartlyCloudyDay from './Icons/cloudy-day-2.svg';
 import PartlyCloudyNight from './Icons/cloudy-night-2.svg';
-import CloudyNight from './Icons/cloudy-night-3.svg';
 import CloudyDay from './Icons/cloudy-day-3.svg'
+import CloudyNight from './Icons/cloudy-night-3.svg';
 import VeryCloudyDay from './Icons/cloudy.svg';
 import VeryCloudyNight from './Icons/cloudy.svg';
 import LightRain from './Icons/rainy-4.svg';
@@ -15,22 +15,25 @@ import LightSnow from './Icons/snowy-5.svg';
 import Snow from './Icons/snowy-6.svg';
 import Humid from './Icons/cloudy-day-1.svg';
 import ThunderStorm from './Icons/thunder.svg';
+import RainSnow from './rainy-7';
 
 /* 
     reference
+
+    "clearday"
+    "clearnight"
     "lightrainday"
     "lightrainnight"
     "rainnight"
     "rainday"
-    "pcloudynight" - partly cloudy night
     "pcloudyday" - partly cloudy day
+    "pcloudynight" - partly cloudy night
     "mcloudynight" - cloudy night
     "mcloudyday" - cloudy day
     "cloudyday" - very cloudy day
     "cloudynight" - very cloudy night
-    "clearday"
-    "clearnight"
-    "ishowerday" - isolated shower
+    "ishowerday" - isolated shower day
+    "ishowernight" - isolated shower night
     "oshowerday" - occasional shower day
     "oshowernight" - occasional shower night
     "lightsnowday" - light snow day
@@ -47,6 +50,37 @@ import ThunderStorm from './Icons/thunder.svg';
     "rainsnownight"
 
 */
+
+const WEATHER_TYPE = {
+    clearday: ClearDay,
+    clearnight: ClearNight,
+    lightrainday: LightRain,
+    lightrainnight: lightRain,
+    rainnight: Rain,
+    rainday: Rain,
+    pcloudyday: PartlyCloudyDay,
+    pcloudynight: PartlyCloudyNight,
+    mcloudyday: CloudyDay,
+    mcloudynight: CloudyNight,
+    cloudyday: VeryCloudyDay,
+    cloudynight: VeryCloudyNight,
+    ishowerday: IsolatedShower,
+    ishowernight: IsolatedShower,
+    oshowerday: OccasionalShower,
+    oshowernight: OccasionalShower,
+    lightsnowday: LightSnow,
+    lightsnownight: LightSnow,
+    humidday: Humid,
+    humidnight: Humid,
+    snowday: Snow,
+    snownight: Snow,
+    tsday: ThunderStorm,
+    tsnight: ThunderStorm,
+    tsrainday: ThunderStorm,
+    tsrainnight: ThunderStorm,
+    rainsnowday: RainSnow,
+    rainsnownight: RainSnow
+};
 
 const WeatherIcon = () => {
     return (

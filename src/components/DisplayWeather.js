@@ -32,7 +32,7 @@ const DisplayWeather = () => {
                     output: 'json'
                 }
             });
-            console.log(data)
+
             // splitting data into 8x8 until I find a better solution
 
             const newArray = [...data.dataseries];
