@@ -15,7 +15,7 @@ import LightSnow from './Icons/snowy-5.svg';
 import Snow from './Icons/snowy-6.svg';
 import Humid from './Icons/cloudy-day-1.svg';
 import ThunderStorm from './Icons/thunder.svg';
-import RainSnow from './rainy-7';
+import RainSnow from './Icons/rainy-7.svg';
 
 /* 
     reference
@@ -55,7 +55,7 @@ const WEATHER_TYPE = {
     clearday: ClearDay,
     clearnight: ClearNight,
     lightrainday: LightRain,
-    lightrainnight: lightRain,
+    lightrainnight: LightRain,
     rainnight: Rain,
     rainday: Rain,
     pcloudyday: PartlyCloudyDay,
