@@ -8,7 +8,6 @@ const Weather = (props) => {
     const renderWeatherData = () => {
         if (props.weatherData) {
             return props.weatherData[props.changeDay].map((data, i) => {
-                    console.log(data.weather)
                 return (
                     <div key={data.timepoint} className="weather-day">
                         <div className="timepoint">
@@ -24,7 +23,9 @@ const Weather = (props) => {
                             {data.rh2m}
                         </div>
                         <div className="weather-type">
-                            {data.weather}
+                            <WeatherIcon 
+                                weatherType={data.weather}
+                            />
                         </div>
                     </div>
                 );             
