@@ -26,8 +26,8 @@ const DisplayWeather = () => {
         const getLocation = async () => {
             const { data } = await axios.get('http://www.7timer.info/bin/api.pl', {
                 params: {
-                    lon: 19.818,
-                    lat: 2.759,
+                    lon: 113.17,
+                    lat: 23.09,
                     product: 'civil',
                     output: 'json'
                 }

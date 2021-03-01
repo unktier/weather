@@ -41,8 +41,10 @@ import ThunderStorm from './Icons/thunder.svg';
     "snownight"
     "tsday" - thunderstorm day
     "tsnight" - thunderstorm night
-    "tsrainday" (might not exist)
+    "tsrainday" - thunderstorm day
     "tsrainnight" - thunderstorm rain night
+    "rainsnowday"
+    "rainsnownight"
 
 */
 
