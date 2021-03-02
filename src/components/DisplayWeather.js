@@ -86,11 +86,15 @@ const DisplayWeather = () => {
                     </button>
                 : null
             }
-            <button
-                onClick={onChangeDayNext}
-                className="change-next"
-            >Change Day Next
-            </button>
+            {
+                    changeDay < 7 ? <button
+                        onClick={onChangeDayNext}
+                        className="change-next"
+                    >
+                    Change Day Next
+                    </button>
+                : null
+            }
         </div>
     );
 };

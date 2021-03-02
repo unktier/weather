@@ -17,7 +17,7 @@ const Weather = (props) => {
                             {data.cloudcover}
                         </div>
                         <div className="temp">
-                            {`${data.temp2m}°C`}
+                            {`${data.temp2m} °C`}
                         </div>
                         <div className="relative-humidity">
                             {data.rh2m}
