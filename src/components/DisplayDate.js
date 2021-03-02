@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const DisplayDate = (props) => {
-    const [day, setDay] = useState(new Date().toDateString())
-
+    const onDateChange = () => {
+        const updateDate = new Date();
+        updateDate.setDate(updateDate.getDate() + props.changeDay)
+        return updateDate.toDateString();
+    };
 
     return (
         <div className="display-date">
-            {day}
+            {onDateChange()}
         </div>
     );
 };

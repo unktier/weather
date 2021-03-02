@@ -71,7 +71,7 @@ const DisplayWeather = () => {
     return (
         <div className="display-weather">
             <div className="initial-date">
-                <DisplayDate />
+                <DisplayDate changeDay={changeDay} />
             </div>
             <Weather 
                 weatherData={weatherData}
