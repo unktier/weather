@@ -10,3 +10,17 @@
     background-color: rgb(0, 102, 102);
 }
 
+.weather-icon {
+    display: flex;
+    justify-content: center;
+}
+
+.temp {
+    display: flex;
+    justify-content: center;
+}
+
+.relative-humidity {
+    display: flex;
+    justify-content: center;
+}

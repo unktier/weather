@@ -11,7 +11,8 @@ const Weather = (props) => {
                 return (
                     <div key={data.timepoint} className="weather-day">
                         <div className="weather-type">
-                            <WeatherIcon 
+                            <WeatherIcon
+                                className="weather-icon"
                                 weatherType={data.weather}
                             />
                         </div>
