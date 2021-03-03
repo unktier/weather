@@ -11,16 +11,16 @@ const Weather = (props) => {
                 return (
                     <div key={data.timepoint} className="weather-day">
                         <div className="timepoint">
-                            {data.timepoint}
+                            {/* {data.timepoint} */}
                         </div>
                         <div className="cloud-cover">
-                            {data.cloudcover}
+                            {/* {data.cloudcover} */}
                         </div>
                         <div className="temp">
-                            {`${data.temp2m} °C`}
+                            {`Temp: ${data.temp2m} °C`}
                         </div>
                         <div className="relative-humidity">
-                            {data.rh2m}
+                            {`Humidity: ${data.rh2m}`}
                         </div>
                         <div className="weather-type">
                             <WeatherIcon 
