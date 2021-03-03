@@ -1,0 +1,13 @@
+.display-weather {
+    /* display: flex; */
+}
+
+.change-prev {
+
+    justify-content: flex-start;
+}
+
+.change-next {
+    display: flex;
+    justify-content: flex-end;
+}

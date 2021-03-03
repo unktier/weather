@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Weather from './Weather';
 import DisplayDate from './DisplayDate';
+import './DisplayWeather.css';
 
 const DisplayWeather = () => {
     // const [latitude, setLatitude] = useState(null);
@@ -75,10 +76,6 @@ const DisplayWeather = () => {
             <div className="initial-date">
                 <DisplayDate changeDay={changeDay} />
             </div>
-            <Weather 
-                weatherData={weatherData}
-                changeDay={changeDay}
-            />
             {
                 changeDay > 0 ? 
                     <button
@@ -89,6 +86,10 @@ const DisplayWeather = () => {
                     </button>
                 : null
             }
+            <Weather 
+                weatherData={weatherData}
+                changeDay={changeDay}
+            />
             {
                     changeDay < 7 ? <button
                         onClick={onChangeDayNext}
