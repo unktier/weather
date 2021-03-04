@@ -1,4 +1,5 @@
 import React from 'react';
+import './DisplayDate.css';
 
 const DisplayDate = (props) => {
     const onDateChange = () => {
