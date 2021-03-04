@@ -9,9 +9,9 @@ const DisplayDate = (props) => {
     };
 
     return (
-        <div className="display-date">
+        <h3 className="display-date">
             {onDateChange()}
-        </div>
+        </h3>
     );
 };
 
