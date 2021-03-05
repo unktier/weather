@@ -1,7 +1,5 @@
-.initial-date {
-
-};
-
 .display-date {
-    
-}
+    position: absolute;
+    left: 870px;
+    top: 280px;
+};

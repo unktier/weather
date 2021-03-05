@@ -1,8 +1,6 @@
 .weather {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 15%;
+    flex-wrap: nowrap;
 }
 
 .weather-day {
