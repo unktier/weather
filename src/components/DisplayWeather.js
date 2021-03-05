@@ -69,23 +69,6 @@ const DisplayWeather = () => {
         };
     };
 
-    const buttonStyle = {
-        backgroundColor: 'rgb(0, 51, 51)',
-        border: 'none',
-        color: 'rgb(0, 204, 204)',
-        fontSize: '160px',
-        cursor: 'pointer'
-    };
-
-    const emptyButtonStyle = {
-        backgroundColor: 'rgb(0, 51, 51)',
-        color: 'rgb(0, 51, 51)',
-        border: 'none',
-        marginLeft: '25px',
-        fontSize: '160px',
-        outline: 'none'
-    }
-
     return (
         <div className="display-weather">
             <div className="initial-date">
@@ -94,17 +77,14 @@ const DisplayWeather = () => {
             {
                 changeDay > 0 ? 
                     <button
-                        style={buttonStyle}
                         onClick={onChangeDayPrev}
                         className="change-prev"
                     >
                         &#8249;
                     </button>
-                :   <button
-                        style={emptyButtonStyle}
-                    >
-                        &#8249;
-                    </button>
+                :   <div
+                        className="empty-button-left"
+                    ></div>
             }
             <Weather 
                 weatherData={weatherData}
@@ -112,17 +92,14 @@ const DisplayWeather = () => {
             />
             {
                     changeDay < 7 ? <button
-                        style={buttonStyle}
                         onClick={onChangeDayNext}
                         className="change-next"
                     >
                     &#8250;
                     </button>
-                :   <button
-                        style={emptyButtonStyle}
-                    >
-                        &#8249;
-                    </button>
+                :   <div
+                        className="empty-button-right"
+                    ></div>
             }
         </div>
     );
