@@ -69,6 +69,11 @@ const DisplayWeather = () => {
         };
     };
 
+    const buttonStyle = {
+        backgroundColor: 'rgb(0, 51, 51)',
+        border: 'none'
+    };
+
     return (
         <div className="display-weather">
             <div className="initial-date">
@@ -80,7 +85,7 @@ const DisplayWeather = () => {
                         onClick={onChangeDayPrev}
                         className="change-prev"
                     >
-                        Change Day Prev
+                        &#8249;
                     </button>
                 : null
             }
@@ -93,7 +98,7 @@ const DisplayWeather = () => {
                         onClick={onChangeDayNext}
                         className="change-next"
                     >
-                    Change Day Next
+                    &#8250;
                     </button>
                 : null
             }
