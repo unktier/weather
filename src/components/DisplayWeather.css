@@ -1,13 +1,14 @@
 .display-weather {
-    /* display: flex; */
+    display: flex;
+
 }
 
 .change-prev {
-
     justify-content: flex-start;
+    margin-top: 15%; 
 }
 
 .change-next {
-    display: flex;
     justify-content: flex-end;
+    margin-top: 15%; 
 }
