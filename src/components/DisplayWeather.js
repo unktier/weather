@@ -77,6 +77,15 @@ const DisplayWeather = () => {
         cursor: 'pointer'
     };
 
+    const emptyButtonStyle = {
+        backgroundColor: 'rgb(0, 51, 51)',
+        color: 'rgb(0, 51, 51)',
+        border: 'none',
+        marginLeft: '25px',
+        fontSize: '160px',
+        outline: 'none'
+    }
+
     return (
         <div className="display-weather">
             <div className="initial-date">
@@ -91,7 +100,11 @@ const DisplayWeather = () => {
                     >
                         &#8249;
                     </button>
-                : null
+                :   <button
+                        style={emptyButtonStyle}
+                    >
+                        &#8249;
+                    </button>
             }
             <Weather 
                 weatherData={weatherData}
@@ -105,7 +118,11 @@ const DisplayWeather = () => {
                     >
                     &#8250;
                     </button>
-                : null
+                :   <button
+                        style={emptyButtonStyle}
+                    >
+                        &#8249;
+                    </button>
             }
         </div>
     );
