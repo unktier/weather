@@ -55,8 +55,6 @@ const DisplayWeather = () => {
 
     }, []);
 
-    // console.log(weatherData)
-
     const onChangeDayNext = () => {
         if (changeDay < 7) {
             setChangeDay(changeDay + 1);
@@ -91,7 +89,7 @@ const DisplayWeather = () => {
                 changeDay={changeDay}
             />
             {
-                    changeDay < 7 ? <button
+                    changeDay < 7 && weatherData ? <button
                         onClick={onChangeDayNext}
                         className="change-next"
                     >
