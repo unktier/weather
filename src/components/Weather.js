@@ -3,11 +3,11 @@ import WeatherIcon from './WeatherIcon/WeatherIcon';
 
 import './Weather.css';
 
-const Weather = (props) => {
+const Weather = ({ weatherData, changeDay }) => {
 
     const renderWeatherData = () => {
-        if (props.weatherData) {
-            return props.weatherData[props.changeDay].map((data, i) => {
+        if (weatherData) {
+            return weatherData[changeDay].map(data => {
                 return (
                     <div key={data.timepoint} className="weather-day">
                         <div className="weather-type">
