@@ -12,3 +12,6 @@ Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 Simple weather app using react hooks
+
+Using [7timer](http://7timer.info/) for weather data.\
+Icons from [amcharts](https://www.amcharts.com/free-animated-svg-weather-icons).
