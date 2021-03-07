@@ -5,31 +5,28 @@ import DisplayDate from './DisplayDate';
 import './DisplayWeather.css';
 
 const DisplayWeather = () => {
-    // const [latitude, setLatitude] = useState(null);
-    // const [longitude, setLongitude] = useState(null);
+    const [latitude, setLatitude] = useState(null);
+    const [longitude, setLongitude] = useState(null);
     const [weatherData, setWeatherData] = useState(null);
     const [initDate, setInitDate] = useState(null);
     const [changeDay, setChangeDay] = useState(0);
 
     useEffect(() => {
-        // window.navigator.geolocation.getCurrentPosition(
-        //     position => {
-        //         setLatitude(position.coords.latitude);
-        //         setLongitude(position.coords.longitude);                
-        //     },
-        //     err => {
-        //         console.log(err.message);
-        //     }
-        // );
-
-        // lon: 113.17,
-        // lat: 23.09,
+        window.navigator.geolocation.getCurrentPosition(
+            position => {
+                setLatitude(position.coords.latitude);
+                setLongitude(position.coords.longitude);                
+            },
+            err => {
+                console.log(err.message);
+            }
+        );
 
         const getLocation = async () => {
             const { data } = await axios.get('http://www.7timer.info/bin/api.pl', {
                 params: {
-                    lon: 113.17,
-                    lat: 23.09,
+                    lon: longitude,
+                    lat: latitude,
                     product: 'civil',
                     output: 'json'
                 }
@@ -51,9 +48,11 @@ const DisplayWeather = () => {
             setWeatherData(updateArray);
         };
 
-        getLocation();
+        if (longitude && latitude) {
+            getLocation();
+        };
 
-    }, []);
+    }, [longitude, latitude]);
 
     const onChangeDayNext = () => {
         if (changeDay < 7) {
