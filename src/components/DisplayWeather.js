@@ -25,8 +25,8 @@ const DisplayWeather = () => {
         const getLocation = async () => {
             const { data } = await axios.get('http://www.7timer.info/bin/api.pl', {
                 params: {
-                    lon: longitude,
-                    lat: latitude,
+                    lon: 113.17,
+                    lat: 23.09,
                     product: 'civil',
                     output: 'json'
                 }
@@ -44,8 +44,27 @@ const DisplayWeather = () => {
                     sliceTo += 8;
                 };
             };
-            setInitDate(data.init)
+            
+            
+            // const ztime = data.init.slice(8, 10);
+            // const newArray = [...data.dataseries];
+            // let updateArray = [];
+            // let sliceTo = 8;
+            // let newSlice = 3;
+            // const ztime06 = [3, 11, 19, 27, 35, 43, 51, 59];
+    
+            // for (let i = 0; i < newArray.length; i++) {
+            //     if (ztime === "06" && i === 0) {
+            //         updateArray = [...updateArray, newArray.slice(i, 3)];
+            //         newSlice += 8;
+            //     } else if (ztime06.includes(i)){
+            //         console.log(i)
+            //         updateArray = [...updateArray, newArray.slice(i, newSlice)];
+            //         newSlice += 8;
+            //     }
+            // };
             setWeatherData(updateArray);
+            setInitDate(data.init)
         };
 
         if (longitude && latitude) {
