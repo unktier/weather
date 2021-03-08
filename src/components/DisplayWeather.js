@@ -30,7 +30,7 @@ const DisplayWeather = () => {
                     product: 'civil',
                     output: 'json'
                 }
-            });
+            });            
 
             // splitting data into 8x8 until I find a better solution
 
@@ -44,34 +44,29 @@ const DisplayWeather = () => {
                     sliceTo += 8;
                 };
             };
-            
-            
-            // const ztime = data.init.slice(8, 10);
-            // const newArray = [...data.dataseries];
-            // let updateArray = [];
-            // let sliceTo = 8;
-            // let newSlice = 3;
-            // const ztime06 = [3, 11, 19, 27, 35, 43, 51, 59];
-    
-            // for (let i = 0; i < newArray.length; i++) {
-            //     if (ztime === "06" && i === 0) {
-            //         updateArray = [...updateArray, newArray.slice(i, 3)];
-            //         newSlice += 8;
-            //     } else if (ztime06.includes(i)){
-            //         console.log(i)
-            //         updateArray = [...updateArray, newArray.slice(i, newSlice)];
-            //         newSlice += 8;
-            //     }
-            // };
+              
             setWeatherData(updateArray);
             setInitDate(data.init)
         };
+
+        if (initDate) {
+            onInitTime();
+        }
 
         if (longitude && latitude) {
             getLocation();
         };
 
-    }, [longitude, latitude]);
+    }, [longitude, latitude, initDate]);
+
+    const onInitTime = () => {
+        const year = initDate.slice(0, 4);
+        const month = initDate.slice(4, 6);
+        const day = initDate.slice(6, 8);
+        const ztime = initDate.slice(8, 10);
+        const currentDate = `${year}-${month}-${day}T${ztime}:00:00Z`;
+        const initTime = new Date(currentDate);
+    };
 
     const onChangeDayNext = () => {
         if (changeDay < 7) {
