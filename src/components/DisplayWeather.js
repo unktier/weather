@@ -45,7 +45,10 @@ const DisplayWeather = () => {
 
             const newArray = [...data.dataseries];
             let updateArray = [];
-            const ztime = [5, 13, 21, 29, 37, 45, 53, 61]
+            const ztime = {
+                1: [1, 9, 17, 25, 33, 41, 49, 57],
+                5: [5, 13, 21, 29, 37, 45, 53, 61]
+            };
 
             if (startDisplay > 0) {
                 let incrementBy = startDisplay;
@@ -53,7 +56,7 @@ const DisplayWeather = () => {
                     if (i === 0) {
                         updateArray = [...updateArray, newArray.slice(i, incrementBy)];
                         incrementBy += 8;
-                    } else if (ztime.includes(i)){
+                    } else if (ztime[startDisplay].includes(i)){
                         updateArray = [...updateArray, newArray.slice(i, incrementBy)];
                         incrementBy += 8;
                     };
@@ -79,13 +82,15 @@ const DisplayWeather = () => {
         const month = initDate.slice(4, 6);
         const day = initDate.slice(6, 8);
         const ztime = initDate.slice(8, 10);
-        const currentDate = `${year}-${month}-${day}T${ztime}:00:00Z`;
+        const currentDate = `${year}-${month}-${day}T18:00:00Z`;
         const initTime = new Date(currentDate);
         setCurrentHour(initTime.getHours());
 
         if (currentHour === 8) {
             setStartDisplay(5);
-        };
+        } else if (currentHour === 20) {
+            setStartDisplay(1);
+        }
     };
 
     const onChangeDayNext = () => {
