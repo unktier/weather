@@ -11,6 +11,7 @@ const DisplayWeather = () => {
     const [initDate, setInitDate] = useState(null);
     const [changeDay, setChangeDay] = useState(0);
     const [currentHour, setCurrentHour] = useState(null);
+    const [startDisplay, setStartDisplay] = useState(0);
 
     useEffect(() => {
         window.navigator.geolocation.getCurrentPosition(
@@ -26,8 +27,8 @@ const DisplayWeather = () => {
         const getLocation = async () => {
             const { data } = await axios.get('http://www.7timer.info/bin/api.pl', {
                 params: {
-                    lon: 113.17,
-                    lat: 23.09,
+                    lon: longitude,
+                    lat: latitude,
                     product: 'civil',
                     output: 'json'
                 }
@@ -44,28 +45,34 @@ const DisplayWeather = () => {
 
             const newArray = [...data.dataseries];
             let updateArray = [];
-            let sliceTo = 8;
-    
-            for (let i = 0; i < newArray.length; i++) {
-                if (i % 8 === 0 || i === 0) {
-                    updateArray = [...updateArray, newArray.slice(i, sliceTo)];
-                    sliceTo += 8;
+            const ztime = [5, 13, 21, 29, 37, 45, 53, 61]
+
+            if (startDisplay > 0) {
+                let incrementBy = startDisplay;
+                for (let i = 0; i < newArray.length; i++) {
+                    if (i === 0) {
+                        updateArray = [...updateArray, newArray.slice(i, incrementBy)];
+                        incrementBy += 8;
+                    } else if (ztime.includes(i)){
+                        updateArray = [...updateArray, newArray.slice(i, incrementBy)];
+                        incrementBy += 8;
+                    };
                 };
+                setWeatherData(updateArray);
             };
-              
-            setWeatherData(updateArray);
+
             setInitDate(data.init)
         };
 
         if (initDate) {
             onInitTime();
-        }
+        };
 
         if (longitude && latitude) {
             getLocation();
         };
 
-    }, [longitude, latitude, initDate]);
+    }, [longitude, latitude, initDate, currentHour, startDisplay]);
 
     const onInitTime = () => {
         const year = initDate.slice(0, 4);
@@ -75,10 +82,14 @@ const DisplayWeather = () => {
         const currentDate = `${year}-${month}-${day}T${ztime}:00:00Z`;
         const initTime = new Date(currentDate);
         setCurrentHour(initTime.getHours());
+
+        if (currentHour === 8) {
+            setStartDisplay(5);
+        };
     };
 
     const onChangeDayNext = () => {
-        if (changeDay < 7) {
+        if (changeDay < 8) {
             setChangeDay(changeDay + 1);
         };
     };
@@ -111,7 +122,7 @@ const DisplayWeather = () => {
                 changeDay={changeDay}
             />
             {
-                    changeDay < 7 && weatherData ? <button
+                    changeDay < 8 && weatherData ? <button
                         onClick={onChangeDayNext}
                         className="change-next"
                     >
