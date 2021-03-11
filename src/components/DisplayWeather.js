@@ -72,7 +72,7 @@ const DisplayWeather = () => {
         const month = initDate.slice(4, 6);
         const day = initDate.slice(6, 8);
         const ztime = initDate.slice(8, 10);
-        const currentDate = `${year}-${month}-${day}T18:00:00Z`;
+        const currentDate = `${year}-${month}-${day}T${ztime}:00:00Z`;
         const initTime = new Date(currentDate);
         setCurrentHour(initTime.getHours());
     };
