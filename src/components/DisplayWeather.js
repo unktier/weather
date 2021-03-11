@@ -10,6 +10,7 @@ const DisplayWeather = () => {
     const [weatherData, setWeatherData] = useState(null);
     const [initDate, setInitDate] = useState(null);
     const [changeDay, setChangeDay] = useState(0);
+    const [currentHour, setCurrentHour] = useState(null);
 
     useEffect(() => {
         window.navigator.geolocation.getCurrentPosition(
@@ -33,6 +34,13 @@ const DisplayWeather = () => {
             });            
 
             // splitting data into 8x8 until I find a better solution
+            /*
+                time reference
+                00 = 02:00
+                06 = 08:00
+                12 = 14:00
+                18 = 20:00
+            */
 
             const newArray = [...data.dataseries];
             let updateArray = [];
@@ -64,8 +72,9 @@ const DisplayWeather = () => {
         const month = initDate.slice(4, 6);
         const day = initDate.slice(6, 8);
         const ztime = initDate.slice(8, 10);
-        const currentDate = `${year}-${month}-${day}T${ztime}:00:00Z`;
+        const currentDate = `${year}-${month}-${day}T18:00:00Z`;
         const initTime = new Date(currentDate);
+        setCurrentHour(initTime.getHours());
     };
 
     const onChangeDayNext = () => {
