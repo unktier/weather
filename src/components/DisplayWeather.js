@@ -46,6 +46,7 @@ const DisplayWeather = () => {
             let updateArray = [];
             const ztime = {
                 1: [1, 9, 17, 25, 33, 41, 49, 57],
+                3: [3, 11, 19, 27, 35, 43, 51, 59],
                 5: [5, 13, 21, 29, 37, 45, 53, 61]
             };
 
@@ -89,7 +90,9 @@ const DisplayWeather = () => {
             setStartDisplay(5);
         } else if (currentHour === 20) {
             setStartDisplay(1);
-        };
+        } else if (currentHour === 14) {
+            setStartDisplay(3)
+        }
     };
 
     const onChangeDayNext = () => {
