@@ -43,6 +43,8 @@ const DisplayWeather = () => {
 
             const newArray = [...data.dataseries];
             let updateArray = [];
+
+            // ztime is used to split the array from specific points
             const ztime = {
                 1: [1, 9, 17, 25, 33, 41, 49, 57],
                 3: [3, 11, 19, 27, 35, 43, 51, 59],
@@ -86,6 +88,18 @@ const DisplayWeather = () => {
         const initTime = new Date(currentDate);
         const currentHour = initTime.getHours();
 
+        // check current hour and decide how many 
+        // weather points to display for first day
+        if (currentHour === 2) {
+            setStartDisplay(7);
+        } else if (currentHour === 8) {
+            setStartDisplay(5);
+        } else if (currentHour === 14) {
+            setStartDisplay(3)
+        } else if (currentHour === 20) {
+            setStartDisplay(1);
+        };
+
         if (currentHour === 8) {
             setStartDisplay(5);
         } else if (currentHour === 20) {
@@ -95,6 +109,7 @@ const DisplayWeather = () => {
         } else if (currentHour === 2) {
             setStartDisplay(7);
         };
+
     };
 
     const onChangeDayNext = () => {
