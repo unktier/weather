@@ -27,13 +27,12 @@ const DisplayWeather = () => {
             const { data } = await axios.get('http://www.7timer.info/bin/api.pl', {
                 params: {
                     lon: longitude,
-                    lat: latitude,
+                    lat: latitude   ,
                     product: 'civil',
                     output: 'json'
                 }
             });            
 
-            // splitting data into 8x8 until I find a better solution
             /*
                 time reference
                 00 = 02:00
@@ -47,7 +46,8 @@ const DisplayWeather = () => {
             const ztime = {
                 1: [1, 9, 17, 25, 33, 41, 49, 57],
                 3: [3, 11, 19, 27, 35, 43, 51, 59],
-                5: [5, 13, 21, 29, 37, 45, 53, 61]
+                5: [5, 13, 21, 29, 37, 45, 53, 61],
+                7: [7, 15, 23, 31, 39, 47, 55, 63]
             };
 
             if (startDisplay > 0) {
@@ -92,7 +92,9 @@ const DisplayWeather = () => {
             setStartDisplay(1);
         } else if (currentHour === 14) {
             setStartDisplay(3)
-        }
+        } else if (currentHour === 2) {
+            setStartDisplay(7);
+        };
     };
 
     const onChangeDayNext = () => {
