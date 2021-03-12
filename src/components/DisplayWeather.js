@@ -44,8 +44,8 @@ const DisplayWeather = () => {
             const newArray = [...data.dataseries];
             let updateArray = [];
 
-            // ztime is used to split the array from specific points
-            const ztime = {
+            // cutPoints is used to split the array from specific points
+            const cutPoints = {
                 1: [1, 9, 17, 25, 33, 41, 49, 57],
                 3: [3, 11, 19, 27, 35, 43, 51, 59],
                 5: [5, 13, 21, 29, 37, 45, 53, 61],
@@ -58,7 +58,7 @@ const DisplayWeather = () => {
                     if (i === 0) {
                         updateArray = [...updateArray, newArray.slice(i, incrementBy)];
                         incrementBy += 8;
-                    } else if (ztime[startDisplay].includes(i)){
+                    } else if (cutPoints[startDisplay].includes(i)){
                         updateArray = [...updateArray, newArray.slice(i, incrementBy)];
                         incrementBy += 8;
                     };
