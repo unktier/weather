@@ -100,16 +100,6 @@ const DisplayWeather = () => {
             setStartDisplay(1);
         };
 
-        if (currentHour === 8) {
-            setStartDisplay(5);
-        } else if (currentHour === 20) {
-            setStartDisplay(1);
-        } else if (currentHour === 14) {
-            setStartDisplay(3)
-        } else if (currentHour === 2) {
-            setStartDisplay(7);
-        };
-
     };
 
     const onChangeDayNext = () => {
