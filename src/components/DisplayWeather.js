@@ -28,24 +28,30 @@ const DisplayWeather = () => {
                     lon: longitude,
                     lat: latitude,
                     product: 'civil',
-                    output: 'json'
+                    output: 'json',
+                    tzshift: -1
                 }
             });
+
+            console.log(data);
 
             // splitting data into 8x8 until I find a better solution
 
             const newArray = [...data.dataseries];
-            let updateArray = [];
-            let sliceTo = 8;
-    
-            for (let i = 0; i < newArray.length; i++) {
-                if (i % 8 === 0 || i === 0) {
-                    updateArray = [...updateArray, newArray.slice(i, sliceTo)];
-                    sliceTo += 8;
-                };
-            };
+
+            const chunkedArray = newArray.reduce((accumulator, item, index) => { 
+                const chunkIndex = Math.floor(index / 8);
+
+                if (!accumulator[chunkIndex])
+                    accumulator[chunkIndex] = []; // Begin new chunk
+
+                accumulator[chunkIndex].push(item);
+
+                return accumulator
+            }, []);
+
             setInitDate(data.init)
-            setWeatherData(updateArray);
+            setWeatherData(chunkedArray);
         };
 
         if (longitude && latitude) {
@@ -77,7 +83,8 @@ const DisplayWeather = () => {
                         onClick={onChangeDayPrev}
                         className="change-prev"
                     >
-                        &#8249;
+                        <label>&#8249;</label>
+                        
                     </button>
                 :   <div
                         className="empty-button-left"
@@ -92,7 +99,8 @@ const DisplayWeather = () => {
                         onClick={onChangeDayNext}
                         className="change-next"
                     >
-                    &#8250;
+                        <label>&#8250;</label>
+                    
                     </button>
                 :   <div
                         className="empty-button-right"
