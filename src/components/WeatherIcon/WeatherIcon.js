@@ -82,11 +82,11 @@ const WEATHER_TYPE = {
     rainsnownight: RainSnow
 };
 
-const WeatherIcon = (props) => {
+const WeatherIcon = ({ weatherType }) => {
     return (
         <div className="weather-icon">
             <img 
-                src={WEATHER_TYPE[props.weatherType]} 
+                src={WEATHER_TYPE[weatherType]} 
                 alt="weather type" 
             />
         </div>

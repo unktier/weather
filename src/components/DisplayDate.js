@@ -1,10 +1,10 @@
 import React from 'react';
 import './DisplayDate.css';
 
-const DisplayDate = (props) => {
+const DisplayDate = ({ changeDay }) => {
     const onDateChange = () => {
         const updateDate = new Date();
-        updateDate.setDate(updateDate.getDate() + props.changeDay)
+        updateDate.setDate(updateDate.getDate() + changeDay)
         return updateDate.toDateString();
     };
 
