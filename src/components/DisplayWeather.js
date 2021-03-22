@@ -27,7 +27,7 @@ const DisplayWeather = () => {
             const { data } = await axios.get('http://www.7timer.info/bin/api.pl', {
                 params: {
                     lon: longitude,
-                    lat: latitude   ,
+                    lat: latitude,
                     product: 'civil',
                     output: 'json'
                 }
@@ -55,7 +55,10 @@ const DisplayWeather = () => {
                     };
                 };
                 setWeatherData(updateArray);
+
+
             };
+
 
             setInitDate(data.init)
         };
