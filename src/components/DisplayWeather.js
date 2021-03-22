@@ -44,6 +44,30 @@ const DisplayWeather = () => {
             const newArray = [...data.dataseries];
             let updateArray = [];
 
+            // if 3 -> 8-3 = 5
+            // if 5 -> 8-5 = 3
+            // if 7 -> 8-7 = 1
+            // if 1 -> 8-1 = 7
+
+            const chunk = newArray.reduce((accumulator, item, index) => {
+                let chunkIndex;
+                if (index < 1) {
+                    chunkIndex = 0;
+                } else {
+                    chunkIndex = Math.floor((index + 7) / 8);
+                };
+
+                if (!accumulator[chunkIndex]) {
+                    accumulator[chunkIndex] = []; // Begin new chunk
+                }
+
+                    
+                accumulator[chunkIndex].push(item);
+
+                return accumulator;
+            }, []);
+            console.log(chunk);
+
             if (startDisplay > 0) {
                 let incrementBy = startDisplay;
                 for (let i = 0; i < newArray.length; i++) {
@@ -55,11 +79,7 @@ const DisplayWeather = () => {
                     };
                 };
                 setWeatherData(updateArray);
-
-
             };
-
-
             setInitDate(data.init)
         };
 
