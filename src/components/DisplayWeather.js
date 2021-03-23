@@ -8,7 +8,6 @@ const DisplayWeather = () => {
     const [latitude, setLatitude] = useState(null);
     const [longitude, setLongitude] = useState(null);
     const [weatherData, setWeatherData] = useState(null);
-    const [initDate, setInitDate] = useState(null);
     const [changeDay, setChangeDay] = useState(0);
     const [startDisplay, setStartDisplay] = useState(0);
 
@@ -33,37 +32,18 @@ const DisplayWeather = () => {
                 }
             });            
 
-            /*
-                time reference
-                00 = 02:00
-                06 = 08:00
-                12 = 14:00
-                18 = 20:00
-            */
-
-            const newArray = [...data.dataseries];
-            let updateArray = [];
-
-            // if 3 -> 8-3 = 5
-            // if 5 -> 8-5 = 3
-            // if 7 -> 8-7 = 1
-            // if 1 -> 8-1 = 7
-
             if (startDisplay > 0) {
-                chunkData(newArray);
+                chunkData(data.dataseries);
             };
-            setInitDate(data.init)
-        };
 
-        if (initDate) {
-            onInitTime();
+            onInitTime(data.init);
         };
 
         if (longitude && latitude) {
             getLocation();
         };
 
-    }, [longitude, latitude, initDate, startDisplay]);
+    }, [longitude, latitude, startDisplay]);
 
     const chunkData = (data) => {
         const addToIndex = 8 - startDisplay;
@@ -84,7 +64,15 @@ const DisplayWeather = () => {
 
     };
 
-    const onInitTime = () => {
+    const onInitTime = (initDate) => {
+        /*
+            time reference
+            00 = 02:00
+            06 = 08:00
+            12 = 14:00
+            18 = 20:00
+        */
+
         const year = initDate.slice(0, 4);
         const month = initDate.slice(4, 6);
         const day = initDate.slice(6, 8);
