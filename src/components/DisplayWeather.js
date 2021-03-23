@@ -51,17 +51,6 @@ const DisplayWeather = () => {
 
             if (startDisplay > 0) {
                 chunkData(newArray);
-
-                let incrementBy = startDisplay;
-                for (let i = 0; i < newArray.length; i++) {
-                    if (i === 0) {
-                        updateArray = [...updateArray, newArray.slice(i, incrementBy)];
-                    } else if (i === incrementBy){
-                        incrementBy += 8;
-                        updateArray = [...updateArray, newArray.slice(i, incrementBy)];
-                    };
-                };
-                setWeatherData(updateArray);
             };
             setInitDate(data.init)
         };
@@ -79,17 +68,20 @@ const DisplayWeather = () => {
     const chunkData = (data) => {
         const addToIndex = 8 - startDisplay;
 
-        const chunk = data.reduce((accumulator, item, index) => {
+        const chunkedData = data.reduce((accumulator, item, index) => {
              const chunkIndex = Math.floor((index + addToIndex) / 8);
 
-            if (!accumulator[chunkIndex]) 
+            if (!accumulator[chunkIndex]) {
                 accumulator[chunkIndex] = []; // Begin new chunk
+            };
 
             accumulator[chunkIndex] = [...accumulator[chunkIndex], item];
 
             return accumulator;
         }, []);
-        console.log(chunk);
+
+        setWeatherData(chunkedData)
+
     };
 
     const onInitTime = () => {
