@@ -58,9 +58,8 @@ const DisplayWeather = () => {
     
                     if (!accumulator[chunkIndex]) 
                         accumulator[chunkIndex] = []; // Begin new chunk
-   
-                        
-                    accumulator[chunkIndex].push(item);
+    
+                    accumulator[chunkIndex] = [...accumulator[chunkIndex], item];
     
                     return accumulator;
                 }, []);
