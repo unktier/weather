@@ -32,7 +32,7 @@ const DisplayWeather = () => {
                 }
             });            
 
-            if (startDisplay > 0) {
+            if (startDisplay) {
                 chunkData(data.dataseries);
             };
 
