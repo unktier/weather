@@ -22,7 +22,7 @@ const DisplayWeather = () => {
             }
         );
 
-        const getLocation = async () => {
+        const getWeatherData = async () => {
             const { data } = await axios.get('http://www.7timer.info/bin/api.pl', {
                 params: {
                     lon: longitude,
@@ -40,7 +40,7 @@ const DisplayWeather = () => {
         };
 
         if (longitude && latitude) {
-            getLocation();
+            getWeatherData();
         };
 
     }, [longitude, latitude, startDisplay]);
