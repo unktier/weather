@@ -107,6 +107,18 @@ const WeatherCarousel = () => {
         };
     };
 
+    const renderWeather = () => {
+        if (weatherData) {
+            return (
+                <Weather 
+                    weatherData={weatherData}
+                    changeDay={changeDay}
+                />
+            );
+        };
+        return <div>Loading</div>
+    };
+
     return (
         <div className="weather-carousel">
             <div className="initial-date">
@@ -124,10 +136,7 @@ const WeatherCarousel = () => {
                         className="empty-button-left"
                     ></div>
             }
-            <Weather 
-                weatherData={weatherData}
-                changeDay={changeDay}
-            />
+            {renderWeather()}
             {
                     changeDay < 8 && weatherData ? <button
                         onClick={onChangeDayNext}
