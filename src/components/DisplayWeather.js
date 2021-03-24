@@ -8,7 +8,6 @@ const DisplayWeather = () => {
     const [latitude, setLatitude] = useState(null);
     const [longitude, setLongitude] = useState(null);
     const [weatherData, setWeatherData] = useState(null);
-    const [initDate, setInitDate] = useState(null);
     const [changeDay, setChangeDay] = useState(0);
     const [startDisplay, setStartDisplay] = useState(0);
 
@@ -23,7 +22,7 @@ const DisplayWeather = () => {
             }
         );
 
-        const getLocation = async () => {
+        const getWeatherData = async () => {
             const { data } = await axios.get('http://www.7timer.info/bin/api.pl', {
                 params: {
                     lon: longitude,
@@ -33,47 +32,47 @@ const DisplayWeather = () => {
                 }
             });            
 
-            /*
-                time reference
-                00 = 02:00
-                06 = 08:00
-                12 = 14:00
-                18 = 20:00
-            */
-
-            const newArray = [...data.dataseries];
-            let updateArray = [];
-
-            if (startDisplay > 0) {
-                let incrementBy = startDisplay;
-                for (let i = 0; i < newArray.length; i++) {
-                    if (i === 0) {
-                        updateArray = [...updateArray, newArray.slice(i, incrementBy)];
-                    } else if (i === incrementBy){
-                        incrementBy += 8;
-                        updateArray = [...updateArray, newArray.slice(i, incrementBy)];
-                    };
-                };
-                setWeatherData(updateArray);
-
-
+            if (startDisplay) {
+                chunkData(data.dataseries);
             };
 
-
-            setInitDate(data.init)
-        };
-
-        if (initDate) {
-            onInitTime();
+            onInitTime(data.init);
         };
 
         if (longitude && latitude) {
-            getLocation();
+            getWeatherData();
         };
 
-    }, [longitude, latitude, initDate, startDisplay]);
+    }, [longitude, latitude, startDisplay]);
 
-    const onInitTime = () => {
+    const chunkData = (data) => {
+        const addToIndex = 8 - startDisplay;
+
+        const chunkedData = data.reduce((accumulator, item, index) => {
+             const chunkIndex = Math.floor((index + addToIndex) / 8);
+
+            if (!accumulator[chunkIndex]) {
+                accumulator[chunkIndex] = []; // Begin new chunk
+            };
+
+            accumulator[chunkIndex] = [...accumulator[chunkIndex], item];
+
+            return accumulator;
+        }, []);
+
+        setWeatherData(chunkedData)
+
+    };
+
+    const onInitTime = (initDate) => {
+        /*
+            time reference
+            00 = 02:00
+            06 = 08:00
+            12 = 14:00
+            18 = 20:00
+        */
+
         const year = initDate.slice(0, 4);
         const month = initDate.slice(4, 6);
         const day = initDate.slice(6, 8);
