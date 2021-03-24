@@ -64,8 +64,8 @@ const DisplayWeather = () => {
 
     };
 
-    const onInitTime = (initDate) => {
-        /*
+    const displayFirstDay = (currentHour) => {
+         /*
             time reference
             00 = 02:00
             06 = 08:00
@@ -73,16 +73,6 @@ const DisplayWeather = () => {
             18 = 20:00
         */
 
-        const year = initDate.slice(0, 4);
-        const month = initDate.slice(4, 6);
-        const day = initDate.slice(6, 8);
-        const ztime = initDate.slice(8, 10);
-        const currentDate = `${year}-${month}-${day}T${ztime}:00:00Z`;
-        const initTime = new Date(currentDate);
-        const currentHour = initTime.getHours();
-
-        // check current hour and decide how many 
-        // weather points to display for first day
         if (currentHour === 2) {
             setStartDisplay(7);
         } else if (currentHour === 8) {
@@ -92,7 +82,17 @@ const DisplayWeather = () => {
         } else if (currentHour === 20) {
             setStartDisplay(1);
         };
+    };
 
+    const onInitTime = (initDate) => {
+        const year = initDate.slice(0, 4);
+        const month = initDate.slice(4, 6);
+        const day = initDate.slice(6, 8);
+        const ztime = initDate.slice(8, 10);
+        const currentDate = `${year}-${month}-${day}T${ztime}:00:00Z`;
+        const initTime = new Date(currentDate);
+        const currentHour = initTime.getHours();
+        displayFirstDay(currentHour);
     };
 
     const onChangeDayNext = () => {
