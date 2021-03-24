@@ -5,11 +5,10 @@ import PartlyCloudyDay from './Icons/cloudy-day-2.svg';
 import PartlyCloudyNight from './Icons/cloudy-night-2.svg';
 import CloudyDay from './Icons/cloudy-day-3.svg'
 import CloudyNight from './Icons/cloudy-night-3.svg';
-import VeryCloudyDay from './Icons/cloudy.svg';
-import VeryCloudyNight from './Icons/cloudy.svg';
+import VeryCloudy from './Icons/cloudy.svg';
 import LightRain from './Icons/rainy-4.svg';
 import Rain from './Icons/rainy-6.svg'
-import IsolatedShower from './Icons/rainy-1.svg';
+import IsolatedShowerDay from './Icons/rainy-1.svg';
 import OccasionalShower from './Icons/rainy-3.svg';
 import LightSnow from './Icons/snowy-5.svg';
 import Snow from './Icons/snowy-6.svg';
@@ -62,10 +61,10 @@ const WEATHER_TYPE = {
     pcloudynight: PartlyCloudyNight,
     mcloudyday: CloudyDay,
     mcloudynight: CloudyNight,
-    cloudyday: VeryCloudyDay,
-    cloudynight: VeryCloudyNight,
-    ishowerday: IsolatedShower,
-    ishowernight: IsolatedShower,
+    cloudyday: VeryCloudy,
+    cloudynight: VeryCloudy,
+    ishowerday: IsolatedShowerDay,
+    ishowernight: IsolatedShowerDay,
     oshowerday: OccasionalShower,
     oshowernight: OccasionalShower,
     lightsnowday: LightSnow,
