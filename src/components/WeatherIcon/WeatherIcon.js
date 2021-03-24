@@ -9,6 +9,7 @@ import VeryCloudy from './Icons/cloudy.svg';
 import LightRain from './Icons/rainy-4.svg';
 import Rain from './Icons/rainy-6.svg'
 import IsolatedShowerDay from './Icons/rainy-1.svg';
+import IsolatedShowerNight from './Icons/isolated-rain-night.svg';
 import OccasionalShower from './Icons/rainy-3.svg';
 import LightSnow from './Icons/snowy-5.svg';
 import Snow from './Icons/snowy-6.svg';
@@ -64,7 +65,7 @@ const WEATHER_TYPE = {
     cloudyday: VeryCloudy,
     cloudynight: VeryCloudy,
     ishowerday: IsolatedShowerDay,
-    ishowernight: IsolatedShowerDay,
+    ishowernight: IsolatedShowerNight,
     oshowerday: OccasionalShower,
     oshowernight: OccasionalShower,
     lightsnowday: LightSnow,
