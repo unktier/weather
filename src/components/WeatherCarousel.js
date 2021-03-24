@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Weather from './Weather';
 import DisplayDate from './DisplayDate';
-import './DisplayWeather.css';
+import './WeatherCarousel.css';
 
-const DisplayWeather = () => {
+const WeatherCarousel = () => {
     const [latitude, setLatitude] = useState(null);
     const [longitude, setLongitude] = useState(null);
     const [weatherData, setWeatherData] = useState(null);
@@ -108,7 +108,7 @@ const DisplayWeather = () => {
     };
 
     return (
-        <div className="display-weather">
+        <div className="weather-carousel">
             <div className="initial-date">
                 <DisplayDate changeDay={changeDay} />
             </div>
@@ -143,4 +143,4 @@ const DisplayWeather = () => {
     );
 };
 
-export default DisplayWeather;
+export default WeatherCarousel;
