@@ -3,8 +3,7 @@ import WeatherIcon from './WeatherIcon/WeatherIcon';
 
 import './Weather.css';
 
-const Weather = ({ weatherData, changeDay }) => {
-
+const Weather = ({ weatherData, changeDay, slideDirection }) => {
     const renderWeatherData = weatherData[changeDay].map(data => {
         return (
             <div key={data.timepoint} className="weather-day">
@@ -29,7 +28,7 @@ const Weather = ({ weatherData, changeDay }) => {
             </div>
         );             
     });
-
+    console.log(slideDirection)
     return (
         <div className="weather">
             {renderWeatherData}
