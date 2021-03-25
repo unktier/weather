@@ -9,7 +9,6 @@ const WeatherCarousel = () => {
     const [longitude, setLongitude] = useState(null);
     const [weatherData, setWeatherData] = useState(null);
     const [changeDay, setChangeDay] = useState(0);
-    const [slideDirection, setSlideDirection] = useState('');
     const [startDisplay, setStartDisplay] = useState(0);
 
     useEffect(() => {
@@ -99,14 +98,12 @@ const WeatherCarousel = () => {
     const onChangeDayNext = () => {
         if (changeDay < 8) {
             setChangeDay(changeDay + 1);
-            setSlideDirection('right');
         };
     };
 
     const onChangeDayPrev = () => {
         if (changeDay > 0) {
             setChangeDay(changeDay - 1);
-            setSlideDirection('left');
         };
     };
 
@@ -116,7 +113,6 @@ const WeatherCarousel = () => {
                 <Weather 
                     weatherData={weatherData}
                     changeDay={changeDay}
-                    slideDirection={slideDirection}
                 />
             );
         };
