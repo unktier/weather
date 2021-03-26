@@ -4,7 +4,8 @@ import axios from 'axios';
 import './CurrentLocation.css';
 
 const CurrentLocation = ({ long, lat }) => {
-    const [location, setLocation] = useState(null);
+    const [city, setCity] = useState(null);
+    const [country, setCountry] = useState(null);
 
     useEffect(() => {
         const getLocation = async (latLong) => {
@@ -15,8 +16,8 @@ const CurrentLocation = ({ long, lat }) => {
                     q: latLong
                 }
             });
-            console.log(components);
-            setLocation(components.city);
+            setCity(components.city);
+            setCountry(components.country);
         };
         if (long && lat) {
             const paramData = `${lat.toFixed(6)},${long.toFixed(6)}`;
@@ -27,7 +28,7 @@ const CurrentLocation = ({ long, lat }) => {
 
     return (
         <div className="current-location">
-            {location}
+            {`${city}, ${country}`}
         </div>
     );
 };
