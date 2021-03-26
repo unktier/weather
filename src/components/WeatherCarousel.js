@@ -125,7 +125,7 @@ const WeatherCarousel = () => {
             <div className="initial-date">
                 <Day changeDay={changeDay} />
             </div>
-            <div className="current-location">
+            <div className="location">
                 <CurrentLocation 
                     long={longitude}
                     lat={latitude}
