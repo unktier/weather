@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { KEY } from '../api/geocode';
+import { KEY } from '../api/config';
 import axios from 'axios';
 
 const CurrentLocation = ({ long, lat }) => {
