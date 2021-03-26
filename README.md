@@ -16,3 +16,9 @@ Simple weather app using react hooks
 
 Using [7timer](http://7timer.info/) for weather data.\
 Icons from [amcharts](https://www.amcharts.com/free-animated-svg-weather-icons).
+
+## Important
+
+For this app to work correcty you need an api key from [OpenCage](https://opencagedata.com/).
+Create a config.js file inside src/api with your key in the form of
+`export const KEY = 'your_key_here';`
