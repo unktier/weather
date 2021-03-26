@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Weather from './Weather';
-import DisplayDate from './DisplayDate';
+import Day from './Day';
 import CurrentLocation from './CurrentLocation';
 import './WeatherCarousel.css';
 
@@ -123,7 +123,7 @@ const WeatherCarousel = () => {
     return (
         <div className="weather-carousel">
             <div className="initial-date">
-                <DisplayDate changeDay={changeDay} />
+                <Day changeDay={changeDay} />
             </div>
             <div className="current-location">
                 <CurrentLocation 

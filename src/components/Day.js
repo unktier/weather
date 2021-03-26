@@ -1,7 +1,7 @@
 import React from 'react';
-import './DisplayDate.css';
+import './Day.css';
 
-const DisplayDate = ({ changeDay }) => {
+const Day = ({ changeDay }) => {
     const onDateChange = () => {
         const updateDate = new Date();
         updateDate.setDate(updateDate.getDate() + changeDay)
@@ -15,4 +15,4 @@ const DisplayDate = ({ changeDay }) => {
     );
 };
 
-export default DisplayDate;
+export default Day;
