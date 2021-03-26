@@ -9,7 +9,7 @@ const Day = ({ changeDay }) => {
     };
 
     return (
-        <h3 className="display-date">
+        <h3 className="day">
             {onDateChange()}
         </h3>
     );
