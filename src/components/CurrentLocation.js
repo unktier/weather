@@ -1,8 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { KEY } from '../api/config';
 import axios from 'axios';
 
 const CurrentLocation = ({ long, lat }) => {
+    const [location, setLocation] = useState(null);
+
     useEffect(() => {
         const getLocation = async (latLong) => {
             const { data: { results: { 0: { components } } } } = await axios.get('https://api.opencagedata.com/geocode/v1', {
@@ -13,6 +15,7 @@ const CurrentLocation = ({ long, lat }) => {
                 }
             });
             console.log(components);
+            setLocation(components.city);
         };
         if (long && lat) {
             const paramData = `${lat.toFixed(6)},${long.toFixed(6)}`;
@@ -23,7 +26,7 @@ const CurrentLocation = ({ long, lat }) => {
 
     return (
         <div className="current-location">
-            CurrentLocation
+            {location}
         </div>
     );
 };
