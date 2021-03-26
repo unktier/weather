@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { KEY } from '../api/config';
 import axios from 'axios';
-import './CurrentLocation.css';
+import './Location.css';
 
-const CurrentLocation = ({ long, lat }) => {
+const Location = ({ long, lat }) => {
     const [city, setCity] = useState(null);
     const [country, setCountry] = useState(null);
 
@@ -27,10 +27,10 @@ const CurrentLocation = ({ long, lat }) => {
     }, [long, lat]);
 
     return (
-        <div className="current-location">
+        <div className="location">
             {`${city}, ${country}`}
         </div>
     );
 };
 
-export default CurrentLocation;
+export default Location;

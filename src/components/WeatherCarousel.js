@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Weather from './Weather';
 import Day from './Day';
-import CurrentLocation from './CurrentLocation';
+import Location from './Location';
 import './WeatherCarousel.css';
 
 const WeatherCarousel = () => {
@@ -126,7 +126,7 @@ const WeatherCarousel = () => {
                 <Day changeDay={changeDay} />
             </div>
             <div className="location">
-                <CurrentLocation 
+                <Location 
                     long={longitude}
                     lat={latitude}
                 />
@@ -141,7 +141,8 @@ const WeatherCarousel = () => {
                     </button>
                 :   <div
                         className="empty-button-left"
-                    ></div>
+                    >
+                    </div>
             }
             {renderWeather()}
             {
@@ -153,7 +154,8 @@ const WeatherCarousel = () => {
                     </button>
                 :   <div
                         className="empty-button-right"
-                    ></div>
+                    >    
+                    </div>
             }
         </div>
     );
