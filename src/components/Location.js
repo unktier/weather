@@ -16,8 +16,10 @@ const Location = ({ long, lat }) => {
                     q: latLong
                 }
             });
-            setCity(components.city);
+
+            components.city ? setCity(components.city) : setCity(components.county);
             setCountry(components.country);
+            
         };
         if (long && lat) {
             const paramData = `${lat.toFixed(6)},${long.toFixed(6)}`;
@@ -25,6 +27,7 @@ const Location = ({ long, lat }) => {
         };
 
     }, [long, lat]);
+
 
     return (
         <div className="location">
