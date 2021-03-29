@@ -23,24 +23,6 @@ const useWeather = () => {
 
     }, [latitude, longitude, startDisplay]);
 
-    const getWeatherData = async () => {
-        const { data } = await axios.get('http://www.7timer.info/bin/api.pl', {
-            params: {
-                lon: longitude,
-                lat: latitude,
-                product: 'civil',
-                output: 'json'
-            }
-        });
-
-        if (startDisplay) {
-            chunkData(data.dataseries);
-        };
-
-        onInitTime(data.init);
-
-    };
-
     const displayFirstDay = (currentHour) => {
         /*
            time reference
@@ -89,6 +71,24 @@ const useWeather = () => {
     
         setWeatherData(chunkedData)
     
+    };
+
+    const getWeatherData = async () => {
+        const { data } = await axios.get('http://www.7timer.info/bin/api.pl', {
+            params: {
+                lon: longitude,
+                lat: latitude,
+                product: 'civil',
+                output: 'json'
+            }
+        });
+
+        if (startDisplay) {
+            chunkData(data.dataseries);
+        };
+
+        onInitTime(data.init);
+
     };
 
     return [weatherData, latitude, longitude]

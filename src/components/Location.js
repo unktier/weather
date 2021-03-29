@@ -21,8 +21,9 @@ const Location = () => {
 
             components.city ? setCity(components.city) : setCity(components.county);
             setCountry(components.country);
-            console.log(components)
+
         };
+        
         if (latitude && longitude) {
             const paramData = `${latitude.toFixed(6)},${longitude.toFixed(6)}`;
             getLocation(paramData);
