@@ -90,7 +90,7 @@ const useWeather = () => {
     
     };
 
-    return [weatherData, getWeatherData]
+    return [weatherData]
 };
 
 export default useWeather;
