@@ -17,10 +17,11 @@ const useWeather = () => {
                 console.log(err.message);
             }
         );
+        if (latitude && longitude) {
+            getWeatherData();
+        };
 
-        getWeatherData();
-
-    }, [longitude, latitude]);
+    }, [latitude, longitude, startDisplay]);
 
     const getWeatherData = async () => {
         const { data } = await axios.get('http://www.7timer.info/bin/api.pl', {
@@ -90,7 +91,7 @@ const useWeather = () => {
     
     };
 
-    return [weatherData]
+    return [weatherData, latitude, longitude]
 };
 
 export default useWeather;
