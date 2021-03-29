@@ -7,7 +7,7 @@ import './Location.css';
 const Location = () => {
     const [city, setCity] = useState(null);
     const [country, setCountry] = useState(null);
-    const [weatherData, latitude, longitude] = useWeather();
+    const [_, latitude, longitude] = useWeather();
 
     useEffect(() => {
         const getLocation = async (latLong) => {
@@ -23,7 +23,7 @@ const Location = () => {
             setCountry(components.country);
 
         };
-        
+
         if (latitude && longitude) {
             const paramData = `${latitude.toFixed(6)},${longitude.toFixed(6)}`;
             getLocation(paramData);
