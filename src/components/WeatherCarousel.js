@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import useWeather from '../hooks/useWeather';
 import Weather from './Weather';
 import Day from './Day';
 import Location from './Location';
@@ -6,6 +7,7 @@ import './WeatherCarousel.css';
 
 const WeatherCarousel = () => {
     const [changeDay, setChangeDay] = useState(0);
+    const [weatherData] = useWeather();
 
     const onChangeDayNext = () => {
         if (changeDay < 8) {
@@ -37,10 +39,7 @@ const WeatherCarousel = () => {
                 <Day changeDay={changeDay} />
             </div>
             <div className="location">
-                <Location 
-                    long={longitude}
-                    lat={latitude}
-                />
+                <Location />
             </div>
             {
                 changeDay > 0 ? 
