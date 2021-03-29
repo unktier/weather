@@ -6,64 +6,8 @@ import Location from './Location';
 import './WeatherCarousel.css';
 
 const WeatherCarousel = () => {
-    const [latitude, setLatitude] = useState(null);
-    const [longitude, setLongitude] = useState(null);
-    const [weatherData, setWeatherData] = useState(null);
     const [changeDay, setChangeDay] = useState(0);
     const [startDisplay, setStartDisplay] = useState(0);
-
-    useEffect(() => {
-        window.navigator.geolocation.getCurrentPosition(
-            position => {
-                setLatitude(position.coords.latitude);
-                setLongitude(position.coords.longitude);                
-            },
-            err => {
-                console.log(err.message);
-            }
-        );
-
-        const getWeatherData = async () => {
-            const { data } = await axios.get('http://www.7timer.info/bin/api.pl', {
-                params: {
-                    lon: longitude,
-                    lat: latitude,
-                    product: 'civil',
-                    output: 'json'
-                }
-            });            
-
-            if (startDisplay) {
-                chunkData(data.dataseries);
-            };
-
-            onInitTime(data.init);
-        };
-
-        if (longitude && latitude) {
-            getWeatherData();
-        };
-
-    }, [longitude, latitude, startDisplay]);
-
-    const chunkData = (data) => {
-        const addToIndex = 8 - startDisplay;
-
-        const chunkedData = data.reduce((accumulator, item, index) => {
-             const chunkIndex = Math.floor((index + addToIndex) / 8);
-
-            if (!accumulator[chunkIndex]) {
-                accumulator[chunkIndex] = []; // Begin new chunk
-            };
-
-            accumulator[chunkIndex] = [...accumulator[chunkIndex], item];
-
-            return accumulator;
-        }, []);
-
-        setWeatherData(chunkedData)
-
-    };
 
     const displayFirstDay = (currentHour) => {
          /*
