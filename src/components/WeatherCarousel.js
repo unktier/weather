@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import Weather from './Weather';
 import Day from './Day';
 import Location from './Location';
@@ -7,38 +6,6 @@ import './WeatherCarousel.css';
 
 const WeatherCarousel = () => {
     const [changeDay, setChangeDay] = useState(0);
-    const [startDisplay, setStartDisplay] = useState(0);
-
-    const displayFirstDay = (currentHour) => {
-         /*
-            time reference
-            00 = 02:00
-            06 = 08:00
-            12 = 14:00
-            18 = 20:00
-        */
-
-        if (currentHour === 2) {
-            setStartDisplay(7);
-        } else if (currentHour === 8) {
-            setStartDisplay(5);
-        } else if (currentHour === 14) {
-            setStartDisplay(3)
-        } else if (currentHour === 20) {
-            setStartDisplay(1);
-        };
-    };
-
-    const onInitTime = (initDate) => {
-        const year = initDate.slice(0, 4);
-        const month = initDate.slice(4, 6);
-        const day = initDate.slice(6, 8);
-        const ztime = initDate.slice(8, 10);
-        const currentDate = `${year}-${month}-${day}T${ztime}:00:00Z`;
-        const initTime = new Date(currentDate);
-        const currentHour = initTime.getHours();
-        displayFirstDay(currentHour);
-    };
 
     const onChangeDayNext = () => {
         if (changeDay < 8) {
