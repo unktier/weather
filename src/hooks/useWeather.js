@@ -1,22 +1,13 @@
 import { useState, useEffect } from 'react';
+import useCoords from './useCoords';
 import axios from 'axios';
 
 const useWeather = () => {
-    const [latitude, setLatitude] = useState(null);
-    const [longitude, setLongitude] = useState(null);
+    const [latitude, longitude] = useCoords();
     const [weatherData, setWeatherData] = useState(null);
     const [startDisplay, setStartDisplay] = useState(0);
 
     useEffect(() => {
-        window.navigator.geolocation.getCurrentPosition(
-            position => {
-                setLatitude(position.coords.latitude);
-                setLongitude(position.coords.longitude);                
-            },
-            err => {
-                console.log(err.message);
-            }
-        );
         if (latitude && longitude) {
             getWeatherData();
         };
@@ -91,7 +82,7 @@ const useWeather = () => {
 
     };
 
-    return [weatherData, latitude, longitude]
+    return [weatherData];
 };
 
 export default useWeather;
