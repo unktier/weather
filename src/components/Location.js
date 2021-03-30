@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import useWeather from '../hooks/useWeather';
+import useCoords from '../hooks/useCoords';
 import { KEY } from '../api/config';
 import axios from 'axios';
 import './Location.css';
 
 const Location = () => {
-    const [city, setCity] = useState(null);
-    const [country, setCountry] = useState(null);
-    const [_, latitude, longitude] = useWeather();
+    const [city, setCity] = useState('Loading');
+    const [country, setCountry] = useState('Loading');
+    const [latitude, longitude] = useCoords();
 
     useEffect(() => {
         const getLocation = async (latLong) => {
