@@ -5,6 +5,7 @@ import axios from 'axios';
 const useWeather = () => {
     const [latitude, longitude] = useCoords();
     const [weatherData, setWeatherData] = useState(null);
+    const [startTime, setStartTime] = useState(null);
     const [startDisplay, setStartDisplay] = useState(0);
 
     useEffect(() => {
@@ -42,6 +43,7 @@ const useWeather = () => {
        const currentDate = `${year}-${month}-${day}T${ztime}:00:00Z`;
        const initTime = new Date(currentDate);
        const currentHour = initTime.getHours();
+       setStartTime(currentHour);
        displayFirstDay(currentHour);
     };
     
@@ -82,7 +84,7 @@ const useWeather = () => {
 
     };
 
-    return [weatherData];
+    return [weatherData, startTime];
 };
 
 export default useWeather;
