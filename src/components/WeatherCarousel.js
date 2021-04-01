@@ -7,7 +7,7 @@ import './WeatherCarousel.css';
 
 const WeatherCarousel = () => {
     const [changeDay, setChangeDay] = useState(0);
-    const [weatherData] = useWeather();
+    const [weatherData, startTime] = useWeather();
 
     const onChangeDayNext = () => {
         if (changeDay < 8) {
@@ -26,6 +26,7 @@ const WeatherCarousel = () => {
             return (
                 <Weather 
                     weatherData={weatherData}
+                    startTime={startTime}
                     changeDay={changeDay}
                 />
             );

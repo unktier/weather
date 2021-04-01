@@ -5,8 +5,7 @@ import useWeather from '../hooks/useWeather';
 
 import './Weather.css';
 
-const Weather = ({ weatherData, changeDay }) => {
-    const [ ,startTime] = useWeather();
+const Weather = ({ weatherData, changeDay, startTime }) => {
     const renderWeatherData = weatherData[changeDay].map((data, i) => {
         return (
             <div key={data.timepoint} className="weather-day">
