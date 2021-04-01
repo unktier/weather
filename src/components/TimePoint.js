@@ -1,13 +1,8 @@
 import React from 'react';
-import useWeather from '../hooks/useWeather';
 
-const TimePoint = ({ index }) => {
-    const [ ,startTime] = useWeather();
-    // console.log(startTime);
+const TimePoint = ({ index, startTime }) => {
     const newTime = startTime + ((index + 1) * 3);
-
-
-
+    console.log(startTime);
     return (
         <div>
             {newTime}

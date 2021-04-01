@@ -1,10 +1,12 @@
 import React from 'react';
 import WeatherIcon from './WeatherIcon/WeatherIcon';
 import TimePoint from './TimePoint';
+import useWeather from '../hooks/useWeather';
 
 import './Weather.css';
 
 const Weather = ({ weatherData, changeDay }) => {
+    const [ ,startTime] = useWeather();
     const renderWeatherData = weatherData[changeDay].map((data, i) => {
         return (
             <div key={data.timepoint} className="weather-day">
@@ -15,7 +17,10 @@ const Weather = ({ weatherData, changeDay }) => {
                     />
                 </div>
                 <div className="timepoint">
-                    {/* <TimePoint index={i} /> */}
+                    <TimePoint 
+                        index={i}
+                        startTime={startTime}
+                    />
                 </div>
                 <div className="cloud-cover">
                     {/* {data.cloudcover} */}
