@@ -10,6 +10,9 @@ const Location = () => {
     const [latitude, longitude] = useCoords();
 
     useEffect(() => {
+        const cancelToken = axios.CancelToken;
+        const source = cancelToken.source();
+        
         const getLocation = async (latLong) => {
             const { data: { results: { 0: { components } } } } = await axios.get('https://api.opencagedata.com/geocode/v1', {
                 params: {
@@ -27,6 +30,10 @@ const Location = () => {
         if (latitude && longitude) {
             const paramData = `${latitude.toFixed(6)},${longitude.toFixed(6)}`;
             getLocation(paramData);
+        };
+
+        return () => {
+            source.cancel('axios request cancelled');
         };
 
     }, [latitude, longitude]);

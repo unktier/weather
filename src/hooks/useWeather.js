@@ -9,8 +9,15 @@ const useWeather = () => {
     const [startDisplay, setStartDisplay] = useState(0);
 
     useEffect(() => {
+        const cancelToken = axios.CancelToken;
+        const source = cancelToken.source();
+
         if (latitude && longitude) {
             getWeatherData();
+        };
+
+        return () => {
+            source.cancel('axios request cancelled');
         };
 
     }, [latitude, longitude, startDisplay]);
@@ -66,7 +73,7 @@ const useWeather = () => {
     
     };
 
-    const getWeatherData = async () => {
+    const getWeatherData = async (abortController) => {
         const { data } = await axios.get('http://www.7timer.info/bin/api.pl', {
             params: {
                 lon: longitude,
