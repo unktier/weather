@@ -1,7 +1,6 @@
 import React from 'react';
 import WeatherIcon from './WeatherIcon/WeatherIcon';
 import TimePoint from './TimePoint';
-import useWeather from '../hooks/useWeather';
 
 import './Weather.css';
 
@@ -19,6 +18,7 @@ const Weather = ({ weatherData, changeDay, startTime }) => {
                     <TimePoint 
                         index={i}
                         startTime={startTime}
+                        timePoint={data.timepoint}
                     />
                 </div>
                 <div className="cloud-cover">
