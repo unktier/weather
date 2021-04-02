@@ -91,7 +91,7 @@ const useWeather = () => {
 
     };
 
-    return [weatherData, startTime];
+    return [weatherData, startTime, startDisplay];
 };
 
 export default useWeather;

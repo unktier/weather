@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TimePoint = ({ index, startTime, timePoint }) => {
+const TimePoint = ({ index, startTime, timePoint, firstRender }) => {
     let newTime;
     if (timePoint <= 15) {
         newTime = startTime + ((index + 1) * 3);

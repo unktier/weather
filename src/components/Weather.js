@@ -4,7 +4,7 @@ import TimePoint from './TimePoint';
 
 import './Weather.css';
 
-const Weather = ({ weatherData, changeDay, startTime }) => {
+const Weather = ({ weatherData, changeDay, startTime, firstRender }) => {
     const renderWeatherData = weatherData[changeDay].map((data, i) => {
         return (
             <div key={data.timepoint} className="weather-day">
@@ -19,6 +19,7 @@ const Weather = ({ weatherData, changeDay, startTime }) => {
                         index={i}
                         startTime={startTime}
                         timePoint={data.timepoint}
+                        firstRender={firstRender}
                     />
                 </div>
                 <div className="cloud-cover">
