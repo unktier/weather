@@ -5,11 +5,19 @@ import axios from 'axios';
 const useWeather = () => {
     const [latitude, longitude] = useCoords();
     const [weatherData, setWeatherData] = useState(null);
+    const [startTime, setStartTime] = useState(null);
     const [startDisplay, setStartDisplay] = useState(0);
 
     useEffect(() => {
+        const cancelToken = axios.CancelToken;
+        const source = cancelToken.source();
+
         if (latitude && longitude) {
             getWeatherData();
+        };
+
+        return () => {
+            source.cancel('axios request cancelled');
         };
 
     }, [latitude, longitude, startDisplay]);
@@ -42,6 +50,7 @@ const useWeather = () => {
        const currentDate = `${year}-${month}-${day}T${ztime}:00:00Z`;
        const initTime = new Date(currentDate);
        const currentHour = initTime.getHours();
+       setStartTime(currentHour);
        displayFirstDay(currentHour);
     };
     
@@ -64,7 +73,7 @@ const useWeather = () => {
     
     };
 
-    const getWeatherData = async () => {
+    const getWeatherData = async (abortController) => {
         const { data } = await axios.get('http://www.7timer.info/bin/api.pl', {
             params: {
                 lon: longitude,
@@ -82,7 +91,7 @@ const useWeather = () => {
 
     };
 
-    return [weatherData];
+    return [weatherData, startTime, startDisplay];
 };
 
 export default useWeather;

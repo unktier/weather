@@ -1,20 +1,24 @@
 import React from 'react';
 import WeatherIcon from './WeatherIcon/WeatherIcon';
+import TimePoint from './TimePoint';
 
 import './Weather.css';
 
-const Weather = ({ weatherData, changeDay }) => {
-    const renderWeatherData = weatherData[changeDay].map(data => {
+const Weather = ({ weatherData, changeDay, startTime, firstRender }) => {
+    const renderWeatherData = weatherData[changeDay].map((data, i) => {
         return (
             <div key={data.timepoint} className="weather-day">
+                    <TimePoint 
+                        index={i}
+                        startTime={startTime}
+                        timePoint={data.timepoint}
+                        firstRender={firstRender}
+                    />
                 <div className="weather-type">
                     <WeatherIcon
                         className="weather-icon"
                         weatherType={data.weather}
                     />
-                </div>
-                <div className="timepoint">
-                    {/* {data.timepoint} */}
                 </div>
                 <div className="cloud-cover">
                     {/* {data.cloudcover} */}
@@ -33,7 +37,7 @@ const Weather = ({ weatherData, changeDay }) => {
     
     return (
         <div className={`weather ${slide}`}>
-            {renderWeatherData} 
+            {renderWeatherData}
         </div>
     )
 };
