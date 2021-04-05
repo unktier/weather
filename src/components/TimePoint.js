@@ -7,6 +7,13 @@ const TIME_START = {
     7: 21
 };
 
+const TIME_CONVERT = {
+    14: '2 PM',
+    17: '5 PM',
+    20: '8 PM',
+    23: '11 PM'
+};
+
 const TimePoint = ({ index, startTime, timePoint, firstRender }) => {
     let newTime;
     if (timePoint <= TIME_START[firstRender]) {
@@ -17,9 +24,9 @@ const TimePoint = ({ index, startTime, timePoint, firstRender }) => {
 
     return (
         <div>
-            {newTime}
+            {newTime >= 14 ? TIME_CONVERT[newTime] : `${newTime} AM`}
         </div>
-    )
-}
+    );
+};
 
 export default TimePoint;
