@@ -23,7 +23,7 @@ const TimePoint = ({ index, startTime, timePoint, firstRender }) => {
     };
 
     return (
-        <div>
+        <div className="time-point">
             {newTime >= 14 ? TIME_CONVERT[newTime] : `${newTime} AM`}
         </div>
     );
