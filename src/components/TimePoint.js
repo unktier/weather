@@ -1,4 +1,5 @@
 import React from 'react';
+import './TimePoint.css';
 
 const TIME_START = {
     1: 3,
