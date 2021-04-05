@@ -8,18 +8,18 @@ const Weather = ({ weatherData, changeDay, startTime, firstRender }) => {
     const renderWeatherData = weatherData[changeDay].map((data, i) => {
         return (
             <div key={data.timepoint} className="weather-day">
-                <div className="weather-type">
-                    <WeatherIcon
-                        className="weather-icon"
-                        weatherType={data.weather}
-                    />
-                </div>
                 <div className="timepoint">
                     <TimePoint 
                         index={i}
                         startTime={startTime}
                         timePoint={data.timepoint}
                         firstRender={firstRender}
+                    />
+                </div>
+                <div className="weather-type">
+                    <WeatherIcon
+                        className="weather-icon"
+                        weatherType={data.weather}
                     />
                 </div>
                 <div className="cloud-cover">
