@@ -1,6 +1,7 @@
 import React from 'react';
 import WeatherIcon from './WeatherIcon/WeatherIcon';
 import TimePoint from './TimePoint';
+import Wind from './Wind';
 
 import './Weather.css';
 
@@ -29,6 +30,9 @@ const Weather = ({ weatherData, changeDay, startTime, firstRender }) => {
                 <div className="relative-humidity">
                     {`Humidity: ${data.rh2m}`}
                 </div>
+                <Wind 
+                    wind={data.wind10m}
+                />
             </div>
         );             
     });
