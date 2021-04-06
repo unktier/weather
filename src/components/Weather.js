@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import WeatherIcon from './WeatherIcon/WeatherIcon';
 import TimePoint from './TimePoint';
 import Wind from './Wind';
@@ -6,9 +6,21 @@ import Wind from './Wind';
 import './Weather.css';
 
 const Weather = ({ weatherData, changeDay, startTime, firstRender }) => {
+    const [posX, setPosX] = useState(0);
+    const [posY, setPosY] = useState(0);
+
+    const currentCursorPos = (event) => {
+        setPosX(event.clientX);
+        setPosY(event.clientY);
+    };
+
     const renderWeatherData = weatherData[changeDay].map((data, i) => {
         return (
-            <div key={data.timepoint} className="weather-day">
+            <div 
+                key={data.timepoint} 
+                className="weather-day"
+                onMouseMove={currentCursorPos}
+            >
                     <TimePoint 
                         index={i}
                         startTime={startTime}

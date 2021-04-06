@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 /*
     reference
@@ -14,7 +14,8 @@ import React from 'react';
 */
 
 const Wind = ({ wind }) => {
-    console.log(wind)
+
+    // console.log(wind)
     return (
         <div className="wind">
             Wind
