@@ -8,10 +8,16 @@ import './Weather.css';
 const Weather = ({ weatherData, changeDay, startTime, firstRender }) => {
     const [posX, setPosX] = useState(0);
     const [posY, setPosY] = useState(0);
+    const [weatherHover, setWeatherHover] = useState(false);
 
     const currentCursorPos = (event) => {
+        setWeatherHover(true);
         setPosX(event.clientX);
         setPosY(event.clientY);
+    };
+
+    const cursorLeave = (event) => {
+        setWeatherHover(false);
     };
 
     const renderWeatherData = weatherData[changeDay].map((data, i) => {
@@ -20,13 +26,20 @@ const Weather = ({ weatherData, changeDay, startTime, firstRender }) => {
                 key={data.timepoint} 
                 className="weather-day"
                 onMouseMove={currentCursorPos}
+                onMouseLeave={cursorLeave}
             >
-                    <TimePoint 
-                        index={i}
-                        startTime={startTime}
-                        timePoint={data.timepoint}
-                        firstRender={firstRender}
-                    />
+                <Wind 
+                    wind={data.wind10m}
+                    posX={posX}
+                    posY={posY}
+                    isWeatherHover={weatherHover}
+                />
+                <TimePoint 
+                    index={i}
+                    startTime={startTime}
+                    timePoint={data.timepoint}
+                    firstRender={firstRender}
+                />
                 <div className="weather-type">
                     <WeatherIcon
                         className="weather-icon"
@@ -42,11 +55,6 @@ const Weather = ({ weatherData, changeDay, startTime, firstRender }) => {
                 <div className="relative-humidity">
                     {`Humidity: ${data.rh2m}`}
                 </div>
-                <Wind 
-                    wind={data.wind10m}
-                    posX={posX}
-                    posY={posY}
-                />
             </div>
         );             
     });
