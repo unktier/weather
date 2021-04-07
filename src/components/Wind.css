@@ -1,0 +1,7 @@
+.wind {
+    position: fixed;
+    display: block;
+    height: 300px;
+    width: 600px;
+    border: solid 1px black;
+}

@@ -44,6 +44,8 @@ const Weather = ({ weatherData, changeDay, startTime, firstRender }) => {
                 </div>
                 <Wind 
                     wind={data.wind10m}
+                    posX={posX}
+                    posY={posY}
                 />
             </div>
         );             

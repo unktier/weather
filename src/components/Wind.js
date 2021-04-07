@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './Wind.css';
 
 /*
     reference
@@ -13,11 +14,18 @@ import React, { useState } from 'react';
 
 */
 
-const Wind = ({ wind }) => {
-
+const Wind = ({ wind, posX, posY }) => {
+    const style = {
+        left: posX,
+        right: posY
+    };
     // console.log(wind)
+
     return (
-        <div className="wind">
+        <div 
+            className="wind"
+            style={style}
+        >
             Wind
         </div>
     )
