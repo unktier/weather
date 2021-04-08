@@ -22,7 +22,7 @@ const Weather = ({ weatherData, changeDay, startTime, firstRender }) => {
 
     const renderWeatherData = weatherData[changeDay].map((data, i) => {
         return (
-            <div 
+            <div
                 key={data.timepoint} 
                 className="weather-day"
                 onMouseMove={currentCursorPos}
