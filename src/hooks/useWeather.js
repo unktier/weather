@@ -73,7 +73,7 @@ const useWeather = () => {
     
     };
 
-    const getWeatherData = async (abortController) => {
+    const getWeatherData = async () => {
         const { data } = await axios.get('http://www.7timer.info/bin/api.pl', {
             params: {
                 lon: longitude,
@@ -82,7 +82,7 @@ const useWeather = () => {
                 output: 'json'
             }
         });
-
+ 
         if (startDisplay) {
             chunkData(data.dataseries);
         };
