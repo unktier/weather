@@ -9,16 +9,21 @@ const Weather = ({ weatherData, changeDay, startTime, firstRender }) => {
     const [posX, setPosX] = useState(0);
     const [posY, setPosY] = useState(0);
     const [weatherHover, setWeatherHover] = useState(false);
+    const [wind, setWind] = useState({});
 
     const currentCursorPos = (event) => {
-        setWeatherHover(true);
         setPosX(event.clientX);
         setPosY(event.clientY);
     };
 
-    const cursorLeave = (event) => {
+    const onWeatherHover = (windData) => {
+        setWeatherHover(true);
+    }
+
+    const onWeatherLeave = (event) => {
         setWeatherHover(false);
     };
+
 
     const renderWeatherData = weatherData[changeDay].map((data, i) => {
         return (
@@ -26,10 +31,10 @@ const Weather = ({ weatherData, changeDay, startTime, firstRender }) => {
                 key={data.timepoint} 
                 className="weather-day"
                 onMouseMove={currentCursorPos}
-                onMouseLeave={cursorLeave}
+                onMouseEnter={onWeatherHover}
+                onMouseLeave={onWeatherLeave}
             >
-                <Wind 
-                    wind={data.wind10m}
+                <Wind
                     posX={posX}
                     posY={posY}
                     isWeatherHover={weatherHover}
