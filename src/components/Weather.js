@@ -4,7 +4,7 @@ import TimePoint from './TimePoint';
 
 import './Weather.css';
 
-const Weather = ({ weatherData, changeDay, startTime, firstRender, onWeatherHover, onWeatherLeave, findCursorPos }) => {
+const Weather = ({ weatherData, changeDay, startTime, firstRender, onWeatherHover, findCursorPos }) => {
     const renderWeatherData = weatherData[changeDay].map((data, i) => {
         return (
             <div
