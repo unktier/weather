@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import WeatherIcon from './WeatherIcon/WeatherIcon';
 import TimePoint from './TimePoint';
 
