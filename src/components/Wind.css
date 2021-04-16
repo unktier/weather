@@ -2,7 +2,7 @@
     position: fixed;
     display: block;
     height: 300px;
-    width: 600px;
+    width: 300px;
     border: solid 1px black;
     background-color: rgb(0, 51, 51);
 }

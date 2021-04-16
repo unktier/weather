@@ -1,44 +1,16 @@
 import React, { useState } from 'react';
 import WeatherIcon from './WeatherIcon/WeatherIcon';
 import TimePoint from './TimePoint';
-import Wind from './Wind';
 
 import './Weather.css';
 
-const Weather = ({ weatherData, changeDay, startTime, firstRender }) => {
-    const [posX, setPosX] = useState(0);
-    const [posY, setPosY] = useState(0);
-    const [weatherHover, setWeatherHover] = useState(false);
-    const [wind, setWind] = useState({});
-
-    const currentCursorPos = (event) => {
-        setPosX(event.clientX);
-        setPosY(event.clientY);
-    };
-
-    const onWeatherHover = (windData) => {
-        setWeatherHover(true);
-    }
-
-    const onWeatherLeave = (event) => {
-        setWeatherHover(false);
-    };
-
-
+const Weather = ({ weatherData, changeDay, startTime, firstRender, onWeatherHover, onWeatherLeave, findCursorPos }) => {
     const renderWeatherData = weatherData[changeDay].map((data, i) => {
         return (
             <div
                 key={data.timepoint} 
                 className="weather-day"
-                onMouseMove={currentCursorPos}
-                onMouseEnter={onWeatherHover}
-                onMouseLeave={onWeatherLeave}
             >
-                <Wind
-                    posX={posX}
-                    posY={posY}
-                    isWeatherHover={weatherHover}
-                />
                 <TimePoint 
                     index={i}
                     startTime={startTime}
@@ -67,7 +39,11 @@ const Weather = ({ weatherData, changeDay, startTime, firstRender }) => {
     const slide = `slide-${changeDay}`;
     
     return (
-        <div className={`weather ${slide}`}>
+        <div
+            onMouseMove={findCursorPos}
+            onMouseEnter={onWeatherHover}
+            className={`weather ${slide}`}
+        >
             {renderWeatherData}
         </div>
     )

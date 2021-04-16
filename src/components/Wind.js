@@ -14,7 +14,7 @@ import './Wind.css';
 
 */
 
-const Wind = ({ wind, posX, posY, isWeatherHover }) => {
+const Wind = ({ posX, posY, isWeatherHover, windIndex }) => {
     const style = {
         left: posX,
         right: posY
@@ -26,11 +26,12 @@ const Wind = ({ wind, posX, posY, isWeatherHover }) => {
                 className="wind"
                 style={style}
             >
-                Wind
+                <div className="wind-direction">hello</div>
+                <div className="wind-speed">wind</div>
             </div>
-        )
-    }
-    
+        );
+    };
+
     return <div></div>
 
 };
