@@ -3,20 +3,12 @@ import useWeather from '../hooks/useWeather';
 import Weather from './Weather';
 import Day from './Day';
 import Location from './Location';
-import Wind from './Wind';
 import './WeatherCarousel.css';
 
 const WeatherCarousel = () => {
     const [changeDay, setChangeDay] = useState(0);
     const [weatherData, startTime, startDisplay] = useWeather();
-    const [posX, setPosX] = useState(0);
-    const [posY, setPosY] = useState(0);
     const [weatherHover, setWeatherHover] = useState(false);
-
-    const findCursorPos = (event) => {
-        setPosX(event.clientX);
-        setPosY(event.clientY);
-    };
 
     const onWeatherHover = (event) => {
         setWeatherHover(true);
@@ -41,13 +33,13 @@ const WeatherCarousel = () => {
     const renderWeather = () => {
         if (weatherData) {
             return (
-                <Weather 
+                <Weather
                     weatherData={weatherData}
                     startTime={startTime}
                     firstRender={startDisplay}
                     changeDay={changeDay}
                     onWeatherHover={onWeatherHover}
-                    findCursorPos={findCursorPos}
+                    isWeatherHover={weatherHover}
                 />
             );
         };
@@ -79,11 +71,6 @@ const WeatherCarousel = () => {
                     </div>
             }
             {renderWeather()}
-            <Wind
-                posX={posX}
-                posY={posY}
-                isWeatherHover={weatherHover}
-            />
             {
                     changeDay < 8 && weatherData ? <button
                         onClick={onChangeDayNext}

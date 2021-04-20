@@ -1,16 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import WeatherIcon from './WeatherIcon/WeatherIcon';
 import TimePoint from './TimePoint';
+import Wind from './Wind';
 
 import './Weather.css';
 
-const Weather = ({ weatherData, changeDay, startTime, firstRender, onWeatherHover, findCursorPos }) => {
+const Weather = ({ weatherData, changeDay, startTime, firstRender, onWeatherHover, isWeatherHover }) => {
+    const [posX, setPosX] = useState(0);
+    const [posY, setPosY] = useState(0);
+
+    const findCursorPos = (event) => {
+        setPosX(event.clientX);
+        setPosY(event.clientY);
+    };
+
     const renderWeatherData = weatherData[changeDay].map((data, i) => {
         return (
             <div
                 key={data.timepoint} 
                 className="weather-day"
             >
+                <Wind
+                    posX={posX}
+                    posY={posY}
+                    isWeatherHover={isWeatherHover}
+                />
                 <TimePoint 
                     index={i}
                     startTime={startTime}
