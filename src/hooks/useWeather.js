@@ -82,7 +82,7 @@ const useWeather = () => {
                 output: 'json'
             }
         });
- 
+
         if (startDisplay) {
             chunkData(data.dataseries);
         };

@@ -9,9 +9,11 @@ const WeatherCarousel = () => {
     const [changeDay, setChangeDay] = useState(0);
     const [weatherData, startTime, startDisplay] = useWeather();
     const [weatherHover, setWeatherHover] = useState(false);
+    const [windIndex, setWindIndex] = useState(0);
 
-    const onWeatherHover = (event) => {
+    const onWeatherHover = (index) => {
         setWeatherHover(true);
+        setWindIndex(index);
     };
 
     const onWeatherLeave = (event) => {
@@ -40,12 +42,13 @@ const WeatherCarousel = () => {
                     changeDay={changeDay}
                     onWeatherHover={onWeatherHover}
                     isWeatherHover={weatherHover}
+                    windIndexCheck={windIndex}
                 />
             );
         };
         return <div>Loading</div>
     };
-
+    // console.log(windIndex, 'windIndex');
     return (
         <div 
             className="weather-carousel"

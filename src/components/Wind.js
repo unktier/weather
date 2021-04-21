@@ -14,20 +14,21 @@ import './Wind.css';
 
 */
 
-const Wind = ({ posX, posY, isWeatherHover, windIndex }) => {
+const Wind = ({ posX, posY, isWeatherHover, wind10m, windIndex, windIndexCheck }) => {
     const style = {
         left: posX,
         right: posY
     };
 
-    if (isWeatherHover) {
+    if (isWeatherHover && windIndex === windIndexCheck) {
+
         return (
             <div 
                 className="wind"
                 style={style}
             >
-                <div className="wind-direction">hello</div>
-                <div className="wind-speed">wind</div>
+                <div className="wind-direction">{wind10m.direction}</div>
+                <div className="wind-speed">{wind10m.speed}</div>
             </div>
         );
     };
