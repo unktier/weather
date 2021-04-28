@@ -1,5 +1,5 @@
 import React from 'react';
-import South from './south.png';
+import South from './Directions/south.png';
 
 const WindDirection = () => {
     return (
