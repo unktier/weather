@@ -1,9 +1,13 @@
 import React from 'react';
+import South from './south.png';
 
 const WindDirection = () => {
     return (
         <div>
-            WindDirection
+            <img 
+                src={South}
+                alt="wind direction"
+            />
         </div>
     );
 };

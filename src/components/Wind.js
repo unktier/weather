@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import WindDirection from './WindDirection/WindDirection';
 import './Wind.css';
 
 /*
@@ -28,6 +29,7 @@ const Wind = ({ posX, posY, isWeatherHover, wind10m, windIndex, windIndexCheck }
                 style={style}
             >
                 <div className="wind-direction">{wind10m.direction}</div>
+                <WindDirection />
                 <div className="wind-speed">{wind10m.speed}</div>
             </div>
         );
