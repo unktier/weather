@@ -8,6 +8,16 @@ import SouthEast from './Directions/southeast.png';
 import NorthWest from './Directions/northwest.png';
 import SouthWest from './Directions/southwest.png';
 
+const WIND_DIRECTION = {
+    N: North,
+    S: South,
+    E: East,
+    W: West,
+    NE: NorthEast,
+    SE: SouthEast,
+    NW: NorthWest,
+    SW: SouthWest
+};
 
 const WindDirection = () => {
     return (
