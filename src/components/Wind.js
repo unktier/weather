@@ -29,7 +29,7 @@ const Wind = ({ posX, posY, isWeatherHover, wind10m, windIndex, windIndexCheck }
                 style={style}
             >
                 <div className="wind-direction">{wind10m.direction}</div>
-                <WindDirection />
+                <WindDirection windDirection={wind10m.direction} />
                 <div className="wind-speed">{wind10m.speed}</div>
             </div>
         );

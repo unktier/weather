@@ -19,11 +19,11 @@ const WIND_DIRECTION = {
     SW: SouthWest
 };
 
-const WindDirection = () => {
+const WindDirection = ({ windDirection }) => {
     return (
         <div>
             <img 
-                src={South}
+                src={WIND_DIRECTION[windDirection]}
                 alt="wind direction"
             />
         </div>
