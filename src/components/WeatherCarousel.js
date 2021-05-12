@@ -41,6 +41,7 @@ const WeatherCarousel = () => {
                     firstRender={startDisplay}
                     changeDay={changeDay}
                     onWeatherHover={onWeatherHover}
+                    onWeatherLeave={onWeatherLeave}
                     isWeatherHover={weatherHover}
                     windIndexCheck={windIndex}
                 />
@@ -52,7 +53,6 @@ const WeatherCarousel = () => {
     return (
         <div 
             className="weather-carousel"
-            onMouseLeave={onWeatherLeave}
         >
             <div className="initial-date">
                 <Day changeDay={changeDay} />

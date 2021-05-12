@@ -5,7 +5,7 @@ import Wind from './Wind';
 
 import './Weather.css';
 
-const Weather = ({ weatherData, changeDay, startTime, firstRender, onWeatherHover, isWeatherHover, windIndexCheck }) => {
+const Weather = ({ weatherData, changeDay, startTime, firstRender, onWeatherHover, onWeatherLeave, isWeatherHover, windIndexCheck }) => {
     const [posX, setPosX] = useState(0);
     const [posY, setPosY] = useState(0);
 
@@ -60,6 +60,7 @@ const Weather = ({ weatherData, changeDay, startTime, firstRender, onWeatherHove
         <div
             onMouseMove={findCursorPos}
             className={`weather ${slide}`}
+            onMouseLeave={onWeatherLeave}
         >
             {renderWeatherData}
         </div>

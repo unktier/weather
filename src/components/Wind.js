@@ -17,12 +17,11 @@ import './Wind.css';
 
 const Wind = ({ posX, posY, isWeatherHover, wind10m, windIndex, windIndexCheck }) => {
     const style = {
-        left: posX,
+        left: posX + 10,
         right: posY
     };
 
     if (isWeatherHover && windIndex === windIndexCheck) {
-
         return (
             <div 
                 className="wind"
