@@ -16,7 +16,7 @@ const WeatherCarousel = () => {
         setWindIndex(index);
     };
 
-    const onWeatherLeave = (event) => {
+    const onWeatherLeave = () => {
         setWeatherHover(false);
     };
 
