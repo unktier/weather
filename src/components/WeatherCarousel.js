@@ -49,7 +49,7 @@ const WeatherCarousel = () => {
         };
         return <div>Loading</div>
     };
-    // console.log(windIndex, 'windIndex');
+
     return (
         <div 
             className="weather-carousel"
