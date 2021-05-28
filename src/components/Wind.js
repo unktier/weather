@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import WindDirection from './WindDirection/WindDirection';
+import CloudCover from './CloudCover';
 import './Wind.css';
 
 /*
@@ -15,7 +16,7 @@ import './Wind.css';
 
 */
 
-const Wind = ({ posX, posY, isWeatherHover, wind10m, windIndex, windIndexCheck }) => {
+const Wind = ({ posX, posY, isWeatherHover, wind10m, cloudCover, windIndex, windIndexCheck }) => {
     const style = {
         left: posX + 10,
         right: posY
@@ -30,6 +31,7 @@ const Wind = ({ posX, posY, isWeatherHover, wind10m, windIndex, windIndexCheck }
                 <div className="wind-direction">{wind10m.direction}</div>
                 <WindDirection windDirection={wind10m.direction} />
                 <div className="wind-speed">{wind10m.speed}</div>
+                <CloudCover cloudCover={cloudCover} />
             </div>
         );
     };

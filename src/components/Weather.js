@@ -26,6 +26,7 @@ const Weather = ({ weatherData, changeDay, startTime, firstRender, onWeatherHove
                     posY={posY}
                     isWeatherHover={isWeatherHover}
                     wind10m={data.wind10m}
+                    cloudCover={data.cloudcover}
                     windIndex={i}
                     windIndexCheck={windIndexCheck}
                 />
