@@ -12,10 +12,12 @@ const CLOUD_COVER = {
     9: [94, 100]
 }
 
-const CloudCover = () => {
+const CloudCover = ({ cloudCover }) => {
     return (
         <div className="cloud-cover">
-
+            <div className="cloud-cover-value">
+                {`Cloud Cover: ${CLOUD_COVER[cloudCover][0]}%-${CLOUD_COVER[cloudCover][1]}%`}
+            </div>
         </div>
     )
 };
