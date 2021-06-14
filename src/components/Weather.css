@@ -1,6 +1,7 @@
 .weather {
     display: flex;
     flex-wrap: nowrap;
+    cursor: default;
 }
 
 .weather-day {

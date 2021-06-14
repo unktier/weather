@@ -70,11 +70,11 @@ const useWeather = () => {
         }, []);
     
         setWeatherData(chunkedData)
-    
+
     };
 
-    const getWeatherData = async (abortController) => {
-        const { data } = await axios.get('http://www.7timer.info/bin/api.pl', {
+    const getWeatherData = async () => {
+        const { data } = await axios.get('https://www.7timer.info/bin/api.pl', {
             params: {
                 lon: longitude,
                 lat: latitude,

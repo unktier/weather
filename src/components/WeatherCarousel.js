@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import useWeather from '../hooks/useWeather';
 import Weather from './Weather';
 import Day from './Day';
@@ -8,6 +8,17 @@ import './WeatherCarousel.css';
 const WeatherCarousel = () => {
     const [changeDay, setChangeDay] = useState(0);
     const [weatherData, startTime, startDisplay] = useWeather();
+    const [weatherHover, setWeatherHover] = useState(false);
+    const [windIndex, setWindIndex] = useState(0);
+
+    const onWeatherHover = (index) => {
+        setWeatherHover(true);
+        setWindIndex(index);
+    };
+
+    const onWeatherLeave = () => {
+        setWeatherHover(false);
+    };
 
     const onChangeDayNext = () => {
         if (changeDay < 8) {
@@ -24,11 +35,15 @@ const WeatherCarousel = () => {
     const renderWeather = () => {
         if (weatherData) {
             return (
-                <Weather 
+                <Weather
                     weatherData={weatherData}
                     startTime={startTime}
                     firstRender={startDisplay}
                     changeDay={changeDay}
+                    onWeatherHover={onWeatherHover}
+                    onWeatherLeave={onWeatherLeave}
+                    isWeatherHover={weatherHover}
+                    windIndexCheck={windIndex}
                 />
             );
         };
@@ -36,7 +51,9 @@ const WeatherCarousel = () => {
     };
 
     return (
-        <div className="weather-carousel">
+        <div 
+            className="weather-carousel"
+        >
             <div className="initial-date">
                 <Day changeDay={changeDay} />
             </div>

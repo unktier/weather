@@ -2,6 +2,7 @@
     display: flex;
     margin-top: 350px;
     margin-left: 340px;
+    margin-right: 340px;
     align-items: center;
 }
 
@@ -35,4 +36,12 @@
 .empty-button-right {
     width: 58.63px;
     margin-right: 25px;
+}
+
+.change-prev:hover {
+    color: turquoise;
+}
+
+.change-next:hover {
+    color: turquoise;
 }

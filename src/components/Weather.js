@@ -1,19 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
 import WeatherIcon from './WeatherIcon/WeatherIcon';
 import TimePoint from './TimePoint';
+import MoreDetails from './MoreDetails';
 
 import './Weather.css';
 
-const Weather = ({ weatherData, changeDay, startTime, firstRender }) => {
+const Weather = ({ weatherData, changeDay, startTime, firstRender, onWeatherHover, onWeatherLeave, isWeatherHover, windIndexCheck }) => {
+    const [posX, setPosX] = useState(0);
+    const [posY, setPosY] = useState(0);
+
+    const findCursorPos = (event) => {
+        setPosX(event.clientX);
+        setPosY(event.clientY);
+    };
+
     const renderWeatherData = weatherData[changeDay].map((data, i) => {
         return (
-            <div key={data.timepoint} className="weather-day">
-                    <TimePoint 
-                        index={i}
-                        startTime={startTime}
-                        timePoint={data.timepoint}
-                        firstRender={firstRender}
-                    />
+            <div
+                key={data.timepoint} 
+                className="weather-day"
+                onMouseEnter={() => onWeatherHover(i)}
+            >
+                <MoreDetails
+                    posX={posX}
+                    posY={posY}
+                    isWeatherHover={isWeatherHover}
+                    wind10m={data.wind10m}
+                    cloudCover={data.cloudcover}
+                    windIndex={i}
+                    windIndexCheck={windIndexCheck}
+                />
+                <TimePoint 
+                    index={i}
+                    startTime={startTime}
+                    timePoint={data.timepoint}
+                    firstRender={firstRender}
+                />
                 <div className="weather-type">
                     <WeatherIcon
                         className="weather-icon"
@@ -36,7 +58,11 @@ const Weather = ({ weatherData, changeDay, startTime, firstRender }) => {
     const slide = `slide-${changeDay}`;
     
     return (
-        <div className={`weather ${slide}`}>
+        <div
+            onMouseMove={findCursorPos}
+            className={`weather ${slide}`}
+            onMouseLeave={onWeatherLeave}
+        >
             {renderWeatherData}
         </div>
     )
