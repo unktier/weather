@@ -16,7 +16,7 @@ const CloudCover = ({ cloudCover }) => {
     return (
         <div className="cloud-cover">
             <div className="cloud-cover-value">
-                Cloud Cover:&emsp;{`${CLOUD_COVER[cloudCover][0]}%-${CLOUD_COVER[cloudCover][1]}%`}
+                <span className="type-text">Cloud Cover:&emsp;</span>{`${CLOUD_COVER[cloudCover][0]}%-${CLOUD_COVER[cloudCover][1]}%`}
             </div>
         </div>
     )
