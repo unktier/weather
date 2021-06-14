@@ -1,4 +1,4 @@
-.wind {
+.more-details {
     display: block;
     position: fixed;
     height: 300px;
@@ -6,3 +6,4 @@
     border: solid 1px black;
     background-color: rgb(0, 51, 51);
 }
+

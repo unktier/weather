@@ -25,13 +25,16 @@ const MoreDetails = ({ posX, posY, isWeatherHover, wind10m, cloudCover, windInde
     if (isWeatherHover && windIndex === windIndexCheck) {
         return (
             <div 
-                className="wind"
+                className="more-details"
                 style={style}
             >
                 <CloudCover cloudCover={cloudCover} />
-                <div className="wind-speed">Wind:&emsp;&emsp;&emsp;&emsp;&nbsp;{wind10m.speed} m/s</div>
-                <div className="wind-direction">{wind10m.direction}</div>
-                <WindDirection windDirection={wind10m.direction} />
+                <div className="wind-speed">Wind Speed:&emsp;{wind10m.speed} m/s</div>
+                <div className="wind-direction">Direction:&emsp;&emsp;&nbsp;{wind10m.direction}</div>
+                <WindDirection
+                    className="wind-direction"
+                    windDirection={wind10m.direction} 
+                />
             </div>
         );
     };
