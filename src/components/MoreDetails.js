@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import WindDirection from './WindDirection/WindDirection';
 import CloudCover from './CloudCover';
-import './Wind.css';
+import './MoreDetails.css';
 
 /*
     reference
