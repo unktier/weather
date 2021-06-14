@@ -32,7 +32,7 @@ const MoreDetails = ({ posX, posY, isWeatherHover, wind10m, cloudCover, windInde
                 <div className="wind-speed">Wind Speed:&emsp;{wind10m.speed} m/s</div>
                 <div className="wind-direction">Direction:&emsp;&emsp;&nbsp;{wind10m.direction}</div>
                 <WindDirection
-                    className="wind-direction"
+                    className="wind-direction-icon"
                     windDirection={wind10m.direction} 
                 />
             </div>
