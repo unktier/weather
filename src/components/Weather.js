@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import WeatherIcon from './WeatherIcon/WeatherIcon';
 import TimePoint from './TimePoint';
-import WeatherDetails from './WeatherDetails';
+import MoreDetails from './MoreDetails';
 
 import './Weather.css';
 
@@ -21,7 +21,7 @@ const Weather = ({ weatherData, changeDay, startTime, firstRender, onWeatherHove
                 className="weather-day"
                 onMouseEnter={() => onWeatherHover(i)}
             >
-                <WeatherDetails
+                <MoreDetails
                     posX={posX}
                     posY={posY}
                     isWeatherHover={isWeatherHover}

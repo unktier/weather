@@ -16,7 +16,7 @@ import './Wind.css';
 
 */
 
-const WeatherDetails = ({ posX, posY, isWeatherHover, wind10m, cloudCover, windIndex, windIndexCheck }) => {
+const MoreDetails = ({ posX, posY, isWeatherHover, wind10m, cloudCover, windIndex, windIndexCheck }) => {
     const style = {
         left: posX + 10,
         right: posY
@@ -40,4 +40,4 @@ const WeatherDetails = ({ posX, posY, isWeatherHover, wind10m, cloudCover, windI
 
 };
 
-export default WeatherDetails;
+export default MoreDetails;
