@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import useCoords from '../hooks/useCoords';
 import { KEY } from '../api/config';
 import axios from 'axios';
+import { OPEN_CAGE_DATA } from '../api/url';
 import './Location.css';
 
 const Location = () => {
@@ -14,7 +15,7 @@ const Location = () => {
         const source = cancelToken.source();
 
         const getLocation = async (latLong) => {
-            const { data: { results: { 0: { components } } } } = await axios.get('https://api.opencagedata.com/geocode/v1', {
+            const { data: { results: { 0: { components } } } } = await axios.get(OPEN_CAGE_DATA, {
                 params: {
                     key: KEY,
                     format: 'json',

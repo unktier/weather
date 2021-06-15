@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import useCoords from './useCoords';
 import axios from 'axios';
+import { TIMER_API } from '../api/url';
 
 const useWeather = () => {
     const [latitude, longitude] = useCoords();
@@ -74,7 +75,7 @@ const useWeather = () => {
     };
 
     const getWeatherData = async () => {
-        const { data } = await axios.get('https://www.7timer.info/bin/api.pl', {
+        const { data } = await axios.get(TIMER_API, {
             params: {
                 lon: longitude,
                 lat: latitude,
