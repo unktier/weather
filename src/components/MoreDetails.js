@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import WindDirection from './WindDirection/WindDirection';
 import CloudCover from './CloudCover';
 import './MoreDetails.css';
