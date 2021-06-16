@@ -3,6 +3,7 @@ import useWeather from '../hooks/useWeather';
 import Weather from './Weather';
 import Day from './Day';
 import Location from './Location';
+import Loader from './Loader';
 import './WeatherCarousel.css';
 
 const WeatherCarousel = () => {
@@ -47,7 +48,7 @@ const WeatherCarousel = () => {
                 />
             );
         };
-        return <div>Loading</div>
+        return <Loader />;
     };
 
     return (
