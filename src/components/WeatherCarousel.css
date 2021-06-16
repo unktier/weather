@@ -1,9 +1,8 @@
 .weather-carousel {
     display: flex;
     margin-top: 350px;
-    margin-left: 340px;
-    margin-right: 340px;
     align-items: center;
+    justify-content: center;
     cursor: default;
 }
 
