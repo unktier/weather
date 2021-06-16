@@ -1,5 +1,6 @@
 .day {
     position: absolute;
-    left: 950px;
+    left: 50%;
     top: 280px;
+    margin-left: -64px;
 };
