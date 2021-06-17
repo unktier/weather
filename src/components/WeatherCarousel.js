@@ -1,94 +1,81 @@
-import React, { useState } from 'react';
-import useWeather from '../hooks/useWeather';
-import Weather from './Weather';
-import Day from './Day';
-import Location from './Location';
-import Loader from './Loader';
-import './WeatherCarousel.css';
+import React, { useState } from "react";
+import useWeather from "../hooks/useWeather";
+import Weather from "./Weather";
+import Day from "./Day";
+import Location from "./Location";
+import Loader from "./Loader";
+import "./WeatherCarousel.css";
 
 const WeatherCarousel = () => {
-    const [changeDay, setChangeDay] = useState(0);
-    const [weatherData, startTime, startDisplay] = useWeather();
-    const [weatherHover, setWeatherHover] = useState(false);
-    const [windIndex, setWindIndex] = useState(0);
+  const [changeDay, setChangeDay] = useState(0);
+  const [weatherData, startTime, startDisplay] = useWeather();
+  const [weatherHover, setWeatherHover] = useState(false);
+  const [windIndex, setWindIndex] = useState(0);
 
-    const onWeatherHover = (index) => {
-        setWeatherHover(true);
-        setWindIndex(index);
-    };
+  const onWeatherHover = (index) => {
+    setWeatherHover(true);
+    setWindIndex(index);
+  };
 
-    const onWeatherLeave = () => {
-        setWeatherHover(false);
-    };
+  const onWeatherLeave = () => {
+    setWeatherHover(false);
+  };
 
-    const onChangeDayNext = () => {
-        if (changeDay < 8) {
-            setChangeDay(changeDay + 1);
-        };
-    };
+  const onChangeDayNext = () => {
+    if (changeDay < 8) {
+      setChangeDay(changeDay + 1);
+    }
+  };
 
-    const onChangeDayPrev = () => {
-        if (changeDay > 0) {
-            setChangeDay(changeDay - 1);
-        };
-    };
+  const onChangeDayPrev = () => {
+    if (changeDay > 0) {
+      setChangeDay(changeDay - 1);
+    }
+  };
 
-    const renderWeather = () => {
-        if (weatherData) {
-            return (
-                <Weather
-                    weatherData={weatherData}
-                    startTime={startTime}
-                    firstRender={startDisplay}
-                    changeDay={changeDay}
-                    onWeatherHover={onWeatherHover}
-                    onWeatherLeave={onWeatherLeave}
-                    isWeatherHover={weatherHover}
-                    windIndexCheck={windIndex}
-                />
-            );
-        };
-        return <Loader />;
-    };
+  const renderWeather = () => {
+    if (weatherData) {
+      return (
+        <Weather
+          weatherData={weatherData}
+          startTime={startTime}
+          firstRender={startDisplay}
+          changeDay={changeDay}
+          onWeatherHover={onWeatherHover}
+          onWeatherLeave={onWeatherLeave}
+          isWeatherHover={weatherHover}
+          windIndexCheck={windIndex}
+        />
+      );
+    }
+    return <Loader />;
+  };
 
-    return (
-        <div 
-            className="weather-carousel"
-        >
-            <div className="initial-date">
-                <Day changeDay={changeDay} />
-            </div>
-            <div className="location">
-                <Location />
-            </div>
-            {
-                changeDay > 0 ? 
-                    <button
-                        onClick={onChangeDayPrev}
-                        className="change-prev"
-                    >
-                        &#8249;
-                    </button>
-                :   <div
-                        className="empty-button-left"
-                    >
-                    </div>
-            }
-            {renderWeather()}
-            {
-                    changeDay < 8 && weatherData ? <button
-                        onClick={onChangeDayNext}
-                        className="change-next"
-                    >
-                    &#8250;
-                    </button>
-                :   <div
-                        className="empty-button-right"
-                    >    
-                    </div>
-            }
-        </div>
-    );
+  return (
+    <div className="weather-carousel">
+      <div className="initial-date">
+        <Day changeDay={changeDay} />
+      </div>
+      <div className="location">
+        <Location />
+      </div>
+      {changeDay > 0 ? (
+        <button onClick={onChangeDayPrev} className="change-prev">
+          &#8249;
+        </button>
+      ) : (
+        <div className="empty-button-left"></div>
+      )}
+      {renderWeather()}
+      {changeDay < 8 && weatherData ? (
+        <button onClick={onChangeDayNext} className="change-next">
+          &#8250;
+        </button>
+      ) : (
+        <div className="empty-button-right"></div>
+      )}
+    </div>
+  );
 };
 
 export default WeatherCarousel;

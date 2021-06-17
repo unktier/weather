@@ -1,8 +1,8 @@
 .location-city-country {
-    position: absolute;
-    top: 335px;
-    left: 390px;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: default;
+  position: absolute;
+  top: 335px;
+  left: 390px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: default;
 }
