@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import useCoords from "../hooks/useCoords";
-import { KEY } from "../api/config";
+import { KEY } from "../apis/config";
 import axios from "axios";
-import { OPEN_CAGE_DATA } from "../api/url";
+import { OPEN_CAGE_DATA } from "../apis/url";
 import "./Location.css";
 
 const Location = () => {

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import useCoords from "./useCoords";
 import axios from "axios";
-import timer_api from "../api/7timer";
+import timer_api from "../apis/7timer";
 
 const useWeather = () => {
   const [latitude, longitude] = useCoords();
