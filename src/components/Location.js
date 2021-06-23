@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import useCoords from "../hooks/useCoords";
-import { KEY } from "../apis/config";
+import opencage from "../apis/opencage";
 import axios from "axios";
-import { OPEN_CAGE_DATA } from "../apis/url";
 import "./Location.css";
 
 const Location = () => {
@@ -21,10 +20,8 @@ const Location = () => {
             0: { components },
           },
         },
-      } = await axios.get(OPEN_CAGE_DATA, {
+      } = await opencage.get("/", {
         params: {
-          key: KEY,
-          format: "json",
           q: latLong,
         },
       });
