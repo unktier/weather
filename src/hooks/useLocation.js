@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import useCoords from "../hooks/useCoords";
+import useCoords from "./useCoords";
 import opencage from "../apis/opencage";
 import axios from "axios";
 
